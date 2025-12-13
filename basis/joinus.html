@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BASIS | Join Us</title>
+  <style>
+    /* ==============================
+       RESET & BASE STYLES
+    =============================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Georgia", serif;
+      background-color: #fffaf9;
+      color: #3a1f1a;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: #3a1f1a;
+      text-decoration: none;
+      /* border-bottom: 1px solid #3a1f1a; */
+      transition: opacity 0.3s ease;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+
+    /* ==============================
+       HEADER / NAVIGATION
+    =============================== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #c3b7b1;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+    }
+
+    nav ul li a {
+      font-size: 1rem;
+      color: #3a1f1a;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 1px;
+      background-color: #3a1f1a;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    nav ul li a.active {
+      font-weight: bold;
+    }
+
+    /* ==============================
+       SECTIONS LAYOUT
+    =============================== */
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 80px 60px;
+      border-bottom: 1px solid #e6dbd4;
+    }
+
+    .section-left {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .section-left h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #3a1f1a;
+    }
+
+    .section-right {
+      flex: 2;
+      min-width: 300px;
+      max-width: 900px;
+    }
+
+    .section-right p {
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    /* ==============================
+       CAREER ROLES TABLE
+    =============================== */
+    .role {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid #e6dbd4;
+    }
+
+    .role-info {
+      flex: 1;
+    }
+
+    .role-info a {
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+
+    .role-apply {
+      flex-shrink: 0;
+      font-size: 1rem;
+      align-self: center;
+    }
+
+    /* ==============================
+       FOOTER
+    =============================== */
+    footer {
+      border-top: 1px solid #e6dbd4;
+      text-align: end;
+      padding: 20px;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #3a1f1a;
+      text-decoration: none;
+      border-bottom: 1px solid #3a1f1a;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      opacity: 0.7;
+    }
+
+    /* ==============================
+       RESPONSIVE STYLES
+    =============================== */
+    @media (max-width: 1024px) {
+      .section {
+        padding: 60px 40px;
+      }
+
+      .section-left h1 {
+        font-size: 2.5rem;
+      }
+
+      nav ul {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+        padding: 50px 30px;
+      }
+
+      .section-left {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .section-right {
+        max-width: 100%;
+        text-align: left;
+      }
+
+      .section-left h1 {
+        font-size: 2.2rem;
+      }
+
+      .role {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .role-apply {
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 15px 20px;
+        flex-direction: column;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .logo {
+        font-size: 1.7rem;
+      }
+
+      .section-left h1 {
+        font-size: 1.8rem;
+      }
+
+      .section-right p {
+        font-size: 0.9rem;
+      }
+
+      footer {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==============================
+       NAVIGATION BAR
+  =============================== -->
+  <header>
+    <div class="logo">BASIS</div>
+    <nav>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#">Our Work</a></li>
+        <li><a href="#" class="active">Join Us</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ==============================
+       INTRO SECTION
+  =============================== -->
+  <div class="section">
+    <div class="section-left"></div>
+    <div class="section-right">
+      <p>Basis is building AI technology to solve hard computational problems, and using that technology to help address socially-important challenge problems. To accomplish these two mutually reinforcing goals, we are actively soliciting researchers in our core technical areas and domain experts from academia, government, the social sector, and industry to join us in a new kind of collaborative endeavor.</p>
+    </div>
+  </div>
+
+  <!-- ==============================
+       COLLABORATORS SECTION
+  =============================== -->
+  <div class="section" id="collaborators">
+    <div class="section-left">
+      <h1>Collaborators</h1>
+    </div>
+    <div class="section-right">
+      <p>If you or your organization are interested in working together on our current challenge problems or proposing new ones, or on research and open source software development, we want to hear from you! Please reach out to us at <a href="mailto:contact@basis.ai">contact@basis.ai</a>.</p>
+    </div>
+  </div>
+
+  <!-- ==============================
+       FELLOWSHIPS SECTION
+  =============================== -->
+  <div class="section" id="fellowships">
+    <div class="section-left">
+      <h1>Fellowships</h1>
+    </div>
+    <div class="section-right">
+      <p>Basis sponsors postdoctoral fellowships for early-career scientists who share our mission to understand and build intelligence. Fellows have autonomy to direct their own research, and work with Basis scientists and our academic collaborators.</p>
+      <p>Please see more information and application <a href="#">here</a>.</p>
+    </div>
+  </div>
+
+  <!-- ==============================
+       CAREERS SECTION
+  =============================== -->
+  <div class="section" id="careers">
+    <div class="section-left">
+      <h1>Careers</h1>
+    </div>
+    <div class="section-right">
+      <p>We are looking for people who are excited to contribute to Basis’ technical mission, want to work creatively on projects that matter with impact that goes beyond publications, and enjoy collaborating with a broad community of people while shipping high quality open source software.</p>
+      <p>Our organizational structure makes for a distinct form of career development where employees are able to see their autonomy and responsibilities grow with their projects.</p>
+      <p>For information about how we handle personal data during the application and employment process, please review our <a href="#">Global Data Privacy Notice</a>.</p>
+    </div>
+  </div>
+
+  <!-- ==============================
+       OPEN ROLES SECTION
+  =============================== -->
+  <div class="section" id="open-roles">
+    <div class="section-left">
+      <h1>Open Roles</h1>
+    </div>
+    <div class="section-right">
+
+      <div class="role">
+        <div class="role-info">
+          <a href="#">Research Scientist, Machine Learning</a>
+          <p>NY | Boston — Probabilistic machine learning and causal inference.</p>
+        </div>
+        <div class="role-apply">Apply ↗</div>
+      </div>
+
+      <div class="role">
+        <div class="role-info">
+          <a href="#">Research Scientist, Compilers & Programming Languages</a>
+          <p>NY | Boston — Programming language / compiler design and implementation.</p>
+        </div>
+        <div class="role-apply">Apply ↗</div>
+      </div>
+
+      <div class="role">
+        <div class="role-info">
+          <a href="#">Research Scientist, Robotics</a>
+          <p>NY | Boston — Probabilistic robotics and control systems.</p>
+        </div>
+        <div class="role-apply">Apply ↗</div>
+      </div>
+
+      <div class="role">
+        <div class="role-info">
+          <a href="#">Technical Program Manager, Multiple Projects</a>
+          <p>NY — Coordinate research and engineering across Basis projects.</p>
+        </div>
+        <div class="role-apply">Apply ↗</div>
+      </div>
+
+      <div class="role">
+        <div class="role-info">
+          <a href="#">Scientific Proposal Writer</a>
+          <p>NY | Boston — Communicate our research to funders, the scientific community, and the public.</p>
+        </div>
+        <div class="role-apply">Apply ↗</div>
+      </div>
+
+      <div class="role">
+        <div class="role-info">
+          <a href="#">Postdoctoral Fellowship, MARA (Modeling, Abstraction and Reasoning Agent) Project</a>
+          <p>NY — Postdoctoral Fellowship joint with Kevin Ellis.</p>
+        </div>
+        <div class="role-apply">Apply ↗</div>
+      </div>
+
+      <div class="role">
+        <div class="role-info">
+          <a href="#">Postdoctoral Fellowship, Open Call</a>
+          <p>NY | Boston — Postdoctoral Fellowship in a research area defined by you.</p>
+        </div>
+        <div class="role-apply">Apply ↗</div>
+      </div>
+
+      <div class="role">
+        <div class="role-info">
+          <a href="#">Research Intern, Summer 2026</a>
+          <p>NY | Boston — Summer internships in ML/AI.</p>
+        </div>
+        <div class="role-apply">Apply ↗</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==============================
+       FOOTER
+  =============================== -->
+  <footer>
+    <a href="#">Twitter / X</a> |
+    <a href="#">Mailing List</a> |
+    <a href="mailto:contact@basis.ai">contact@basis.ai</a> |
+    <a href="#">Donate</a>
+  </footer>
+
+</body>
+</html>

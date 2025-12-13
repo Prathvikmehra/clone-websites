@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 20px 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        .search-box {
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            background-color: #e1e1e1;
+        }
+
+        .nav-links a {
+            margin: 0 10px;
+            font-weight: 500;
+        }
+
+        .nav-right button {
+            margin-left: 10px;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .subscribe {
+            background-color: #ff6600;
+            color: #fff;
+        }
+
+        .signin {
+            background-color: #fff;
+            border: 1px solid #ff6600;
+            color: #ff6600;
+        }
+
+        .image {
+            margin: auto;
+            width: 10vw;
+            margin-top: 20px;
+        }
+
+        .heading {
+            margin: auto;
+            width: 50vw;
+            margin-left: 500px;
+        }
+
+        .para {
+            margin: auto;
+            width: 50vw;
+            margin-left: 350px;
+
+        }
+
+        .para2 {
+            margin: auto;
+            width: 50vw;
+            margin-left: 400px;
+        }
+
+        .input {
+            width: 26vw;
+            margin: auto;
+            margin-top: 30px;
+            margin-left: 450px;
+            /* border: 2px solid red; */
+            display: inline-block;
+        }
+
+        .input input {
+            width: 25vw;
+            height: 4vh;
+        }
+
+        .sign {
+            display: inline-block;
+            background-color: #ff6600;
+            border-radius: 25px;
+            width: 10vw;
+            height: 3vh;
+            padding: 5px;
+            color: white;
+            /* border: 2px solid black; */
+
+        }
+
+        .sign p {
+            margin: auto;
+            padding: 3px 30px;
+        }
+
+        .sponsor {
+            margin: auto;
+            width: 30vw;
+            margin-top: 45px;
+        }
+
+        .yourself {
+            margin: auto;
+            width: 20vw;
+            margin-top: 100px;
+        }
+
+        .main {
+            margin: auto;
+            width: 50vw;
+        }
+
+        .leaderboard {
+            margin-left: 100px;
+            margin-top: 150px;
+            position: sticky;
+            bottom: 0px;
+            top: 0px;
+            width: 15vw;
+        }
+
+        .leaderboard:hover h2 {
+            color: #FF6154;
+            transition: all 0.3s ease-out;
+        }
+
+        .border {
+            width: 44vw;
+            height: 33vh;
+            border: 2px solid black;
+            margin-left: 100px;
+            border-color: #acadad;
+            border-radius: 5px;
+        }
+
+        .nov {
+            /* border: 2px solid black; */
+            width: 16vw;
+            height: 5vh;
+            margin-left: 370px;
+            color: #4B587C;
+
+        }
+
+        .img{
+            margin-top: -15px;
+            
+        }
+
+        .border h3 {
+            font-weight: lighter;
+            margin-left: 50px;
+        }
+
+        .border p {
+            font-weight: lighter;
+            margin-left: 50px;
+        }
+
+        .bigdiv{
+            display: flex;
+        }
+
+         body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #0d1117;
+    }
+
+    /* --- SECTION 1: Newsletter --- */
+    section.newsletters {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    section.newsletters h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .newsletter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .newsletter-card {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #fff;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .newsletter-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .newsletter-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .newsletter-header h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .newsletter-date {
+      font-size: 13px;
+      color: #6e7781;
+      text-transform: uppercase;
+    }
+
+    .newsletter-subtitle {
+      font-size: 14px;
+      color: #57606a;
+      margin-bottom: 15px;
+    }
+
+    .newsletter-image img {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    /* --- SECTION 2: Testimonials --- */
+    section.testimonials {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section.testimonials h2 {
+      font-size: 28px;
+      color: #0d1117;
+      margin-bottom: 10px;
+    }
+
+    section.testimonials p.subtitle {
+      color: #6e7781;
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+
+    .testimonials-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .testimonial {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      max-width: 350px;
+      flex: 1 1 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial p {
+      font-size: 15px;
+      color: #24292f;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .user img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .user span {
+      font-weight: 600;
+      color: #0d1117;
+    }
+
+    /* --- SECTION 3: Footer --- */
+    footer {
+      background-color: #0d1117;
+      padding: 40px 10%;
+      color: #f0f6fc;
+    }
+
+    .footer-section {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      border-bottom: 1px solid #21262d;
+      padding-bottom: 30px;
+    }
+
+    .footer-column {
+      min-width: 200px;
+      flex: 1;
+    }
+
+    .footer-column h3 {
+      font-size: 16px;
+      color: #8b949e;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      text-decoration: none;
+      color: #c9d1d9;
+      transition: color 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+      color: #58a6ff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .footer-bottom .footer-column h3 {
+      color: #8b949e;
+      font-size: 15px;
+    }
+
+    @media (max-width: 900px) {
+      .footer-section, .footer-bottom, .testimonials-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .newsletter-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    body {
+margin: 0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #ffffff;
+color: #1c1c1c;
+}
+
+
+section {
+max-width: 1200px;
+margin: 50px auto;
+padding: 0 20px;
+}
+
+
+.title {
+text-align: center;
+margin-bottom: 40px;
+}
+
+
+.title h2 {
+font-size: 28px;
+font-weight: 700;
+color: #0d1117;
+margin-bottom: 10px;
+}
+
+
+.title p {
+color: #6e7781;
+font-size: 16px;
+}
+
+
+.leaderboard-header {
+font-size: 22px;
+font-weight: 700;
+display: flex;
+align-items: center;
+gap: 5px;
+margin-bottom: 25px;
+}
+
+
+.leaderboard-header span {
+font-size: 20px;
+color: #0d1117;
+}
+
+
+.cards {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 25px;
+}
+
+
+.card {
+border: 1px solid #d0d7de;
+border-radius: 8px;
+padding: 25px;
+transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+
+.card:hover {
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+transform: translateY(-5px);
+}
+
+
+.card-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 15px;
+}
+
+    
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="logo">P</div>
+            <input type="text" placeholder="Search ( ctrl + k )" class="search-box">
+
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Launches</a>
+            <a href="products.html">Products</a>
+            <a href="https://www.producthunt.com/newsletters?ref=header_nav">News</a>
+            <a href="#">Forums</a>
+            <a href="#">Advertise</a>
+        </nav>
+        <div class="nav-right">
+            <button class="subscribe">Subscribe</button>
+            <button class="signin">Sign in</button>
+        </div>
+    </header>
+    <main>
+        <div class="image">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.uCQyR0r-FQ-wQ46JffcRlQHaHa?pid=Api&P=0&h=180" alt=""
+                width="100px">
+        </div>
+        <div class="heading">
+            <h2>The best products in your inbox</h2>
+        </div>
+        <div class="para">
+            Product Hunt has been putting viral products and superb memes in email inboxes since 2013.
+        </div>
+        <div class="para2">Sign up and you'll always have something cool to share with your friends.
+        </div>
+        <div class="input">
+            <input type="text" placeholder="your email...">
+        </div>
+        <div class="sign">
+            <p>sign me up</p>
+        </div>
+        <div class="sponsor">
+            <p>Want to sponsor a newsletter? <span style="color: blue;">Find out more</span>
+        </div>
+        <section>
+<div class="title">
+<h2>See for yourself</h2>
+<p>Great products have a story behind them. We'll connect the dots and make it make sense.</p>
+</div>
+
+
+<div class="leaderboard-header">
+<h3>The Leaderboard</h3>
+<span>›</span>
+</div>
+
+
+<div class="cards">
+<div class="card">
+<div class="card-header">
+<h3>Lost in translation</h3>
+<span>November 6th, 2025</span>
+</div>
+<p><strong>gm legends, happy Thursday.</strong></p>
+<p>Here’s today’s lineup: Everywhere wants to free AI from browser tabs and put it right inside your workflow; Dazl gives builders full control over what ...</p>
+<div class="launches">
+<span>Top Launches:</span>
+<img src="https://ph-files.imgix.net/d8686804-9a26-45b7-aa76-706031ef4452.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=18&h=18&fit=crop&frame=1&dpr=1" alt="MeDo">
+<img src="https://ph-files.imgix.net/d8686804-9a26-45b7-aa76-706031ef4452.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=18&h=18&fit=crop&frame=1&dpr=1" alt="Blindspot">
+<img src="https://ph-files.imgix.net/d8686804-9a26-45b7-aa76-706031ef4452.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=18&h=18&fit=crop&frame=1&dpr=1" alt="Context Link">
+</div>
+</div>
+
+
+<div class="card">
+<div class="card-header">
+<h3>Your Face on a Billboard</h3>
+<span>November 5th, 2025</span>
+</div>
+<p><strong>gm legends, happy Wednesday.</strong></p>
+<p>Here’s today’s lineup: Blindspot puts your ads on real billboards in real cities, no middlemen required; Extra Thursday lets you talk through your inbox...</p>
+<div class="launches">
+<span>Top Launches:</span>
+<img src="https://ph-files.imgix.net/d8686804-9a26-45b7-aa76-706031ef4452.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=18&h=18&fit=crop&frame=1&dpr=1" alt="Floqer">
+<img src="https://ph-files.imgix.net/d8686804-9a26-45b7-aa76-706031ef4452.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=18&h=18&fit=crop&frame=1&dpr=1" alt="Uneed">
+<img src="https://ph-files.imgix.net/d8686804-9a26-45b7-aa76-706031ef4452.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=18&h=18&fit=crop&frame=1&dpr=1" alt="Jinna.ai">
+</div>
+</div>
+</div>
+</section>
+
+
+  <!-- SECTION 1: NEWSLETTER -->
+  <section class="newsletters">
+    <h2>The Frontier</h2>
+    <div class="newsletter-grid">
+      <div class="newsletter-card">
+        <div class="newsletter-header">
+          <h3>Stop bugging the devs</h3>
+          <span class="newsletter-date">November 4th, 2025</span>
+        </div>
+        <p class="newsletter-subtitle">Plus, five AI tools you may have missed</p>
+        <div class="newsletter-image">
+          <img src="https://ph-files.imgix.net/e4e690e8-0310-4dfd-b9ab-7b7ffcbbce42.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=540&h=240&fit=crop&frame=1&dpr=1" alt="AI apps">
+        </div>
+      </div>
+      <div class="newsletter-card">
+        <div class="newsletter-header">
+          <h3>Clippy returns</h3>
+          <span class="newsletter-date">October 29th, 2025</span>
+        </div>
+        <p class="newsletter-subtitle">Plus, five AI tools you may have missed</p>
+        <div class="newsletter-image">
+          <img src="https://ph-files.imgix.net/d44ba546-9f73-4f60-8bd9-025a3c59dd18.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=540&h=240&fit=crop&frame=1&dpr=1" alt="Clippy image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: TESTIMONIALS -->
+  <section class="testimonials">
+    <h2>The people who know products</h2>
+    <p class="subtitle">Curating only the best in tech is literally what we do. All day. Every day. We're very good at it.</p>
+
+    <div class="testimonials-container">
+      <div class="testimonial">
+        <p>Your newsletter is one of the very few that I read on a daily basis. It’s on one hand the copy, but above all the content and the quality of the apps you post (almost) e v e r y d a y!</p>
+        <div class="user">
+          <img src="https://ph-files.imgix.net/4593ff55-1605-484d-a7be-5c4c4d5f463e.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=18&h=18&fit=crop&frame=1&dpr=1" alt="Creatif">
+          <span>Creatif Comunicación</span>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <p>For me it is a great source of inspiration. I get ideas and feel very creative after browsing PH and also the newsletter is just fantastic. Great gift of the internet.</p>
+        <div class="user">
+          <img src="https://ph-avatars.imgix.net/3453579/0ffccb25-fcef-454c-a8f3-10280b527d09.jpeg?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=36&h=36&fit=crop&frame=1&dpr=1" alt="Samin">
+          <span>Samin Chowdhury</span>
+        </div>
+      </div>
+
+      <div class="testimonial">
+          <p>Yours is one of the few newsletters I’m excited to open! So many interesting tools to explore that I would never hear of otherwise.</p>
+          <div class="user">
+              <img src="http://ph-avatars.imgix.net/513859/original.jpeg?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=36&h=36&fit=crop&frame=1&dpr=1" alt="Cherry">
+              <span>Cherry Jeffs</span>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+  <!-- SECTION 3: FOOTER -->
+  <footer>
+    <div class="footer-section">
+      <div class="footer-column">
+        <h3>Engineering & Development</h3>
+        <ul>
+          <li><a href="#">Vibe Coding Tools</a></li>
+          <li><a href="#">AI Coding Agents</a></li>
+          <li><a href="#">AI Code Editors</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>LLMs</h3>
+        <ul>
+          <li><a href="#">AI Chatbots</a></li>
+          <li><a href="#">AI Infrastructure Tools</a></li>
+          <li><a href="#">Prompt Engineering Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Productivity</h3>
+        <ul>
+          <li><a href="#">AI notetakers</a></li>
+          <li><a href="#">Note and writing apps</a></li>
+          <li><a href="#">Team collaboration software</a></li>
+          <li><a href="#">Search</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Marketing & Sales</h3>
+        <ul>
+          <li><a href="#">Lead generation software</a></li>
+          <li><a href="#">Marketing automation platforms</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>AI Agents</h3>
+        <ul>
+          <li><a href="#">AI Voice Agents</a></li>
+          <li><a href="#">AI Agent Automation</a></li>
+          <li><a href="#">See All Categories &gt;&gt;</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-column">
+        <h3>Trending categories</h3>
+        <ul>
+          <li><a href="#">Vibe Coding Tools</a></li>
+          <li><a href="#">AI Dictation Apps</a></li>
+          <li><a href="#">AI notetakers</a></li>
+          <li><a href="#">Code Review Tools</a></li>
+          <li><a href="#">No-code Platforms</a></li>
+          <li><a href="#">Figma Plugins</a></li>
+          <li><a href="#">Static site generators</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Top reviewed</h3>
+        <ul>
+          <li><a href="#">Lovable</a></li>
+          <li><a href="#">n8n</a></li>
+          <li><a href="#">Attio</a></li>
+          <li><a href="#">PostHog</a></li>
+          <li><a href="#">Vapi</a></li>
+          <li><a href="#">Granola</a></li>
+          <li><a href="#">Raycast</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Trending products</h3>
+        <ul>
+          <li><a href="#">Lovable</a></li>
+          <li><a href="#">Screen Studio</a></li>
+          <li><a href="#">bolt.new</a></li>
+          <li><a href="#">Wispr Flow</a></li>
+          <li><a href="#">Framer</a></li>
+          <li><a href="#">Replit</a></li>
+          <li><a href="#">Vapi</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Top forum threads</h3>
+        <ul>
+          <li><a href="#">Cursor or Claude Code?</a></li>
+          <li><a href="#">POLL: Domain or product first?</a></li>
+          <li><a href="#">YC deadline in &lt;2 weeks; Who's applying?</a></li>
+          <li><a href="#">We Got into YC, Got Kicked Out...</a></li>
+          <li><a href="#">How Wispr Flow found PMF</a></li>
+          <li><a href="#">Best Vibe Coding tool so far?</a></li>
+          <li><a href="#">Landing page roast - 48 hours only</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

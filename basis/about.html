@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BASIS | About</title>
+    <style>
+        /* Reset & base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", Times, serif;
+            background: #fffaf9;
+            /* soft cream like Basis */
+            color: #3a1f1a;
+            /* deep brown text */
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header / Nav */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #c3b7b1;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            color: #3a1f1a;
+            text-decoration: none;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 1px;
+            background: #3a1f1a;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .25s ease;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        nav a.active {
+            font-weight: 700;
+        }
+
+        /* Shared section layout (left heading, right content) */
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 80px 60px;
+            border-bottom: 1px solid #e6dbd4;
+        }
+
+        .left {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .left h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #3a1f1a;
+        }
+
+        .right {
+            flex: 2;
+            min-width: 300px;
+            max-width: 980px;
+        }
+
+        .right p {
+            margin-bottom: 24px;
+        }
+
+        /* Subhead (e.g., Our Team) */
+        .right h2 {
+            font-size: 2rem;
+            margin: 8px 0 18px;
+        }
+
+        /* Person blocks (Who We Are & Advisors) */
+        .person {
+            margin-bottom: 40px;
+        }
+
+        .person h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .person h3 a {
+            color: #3a1f1a;
+            text-decoration: none;
+            border-bottom: 1px solid #3a1f1a;
+        }
+
+        .person h3 a:hover {
+            opacity: .75;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #e6dbd4;
+            text-align: end;
+            padding: 22px 16px;
+            font-size: .95rem;
+        }
+
+        footer a {
+            color: #3a1f1a;
+            text-decoration: none;
+            border-bottom: 1px solid #3a1f1a;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            opacity: .75;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .section {
+                padding: 60px 40px;
+            }
+
+            .left h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                gap: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+                padding: 50px 30px;
+            }
+
+            .left {
+                text-align: center;
+            }
+
+            .right {
+                text-align: left;
+                max-width: 100%;
+            }
+
+            .left h1 {
+                font-size: 2.2rem;
+            }
+
+            .right h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                font-size: 1.7rem;
+            }
+
+            .left h1 {
+                font-size: 1.8rem;
+            }
+
+            footer {
+                font-size: .88rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">BASIS</div>
+        <nav>
+            <ul>
+                <li><a class="active" href="#">About</a></li>
+                <li><a href="#">Our Work</a></li>
+                <li><a href="joinus.html">Join Us</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Our Mission -->
+    <div class="section" id="mission">
+        <div class="left">
+            <h1>Our Mission</h1>
+        </div>
+        <div class="right">
+            <p>Basis is a 501(c)(3) nonprofit applied research organization with two mutually reinforcing goals.</p>
+            <p>The first is to understand and build intelligence. This means to establish the mathematical principles of
+                what it means to reason, to learn, to make decisions, to understand, and to explain; and to construct
+                software that implements these principles.</p>
+            <p>The second is to advance society’s ability to solve intractable problems. This means expanding the scale,
+                complexity, and breadth of problems that we can solve today, and even more importantly, accelerating our
+                ability to solve problems in the future.</p>
+            <p>To achieve these goals, we’re building both a new technological foundation that draws inspiration from
+                how humans reason, and a new kind of collaborative organization that puts human values first.</p>
+        </div>
+    </div>
+
+    <!-- Who We Are (FULL BIOS) -->
+    <div class="section" id="who-we-are">
+        <div class="left">
+            <h1>Who We Are</h1>
+        </div>
+        <div class="right">
+            <h2>Our Team</h2>
+            <p>Between our core members, advisors, and collaborators, Basis is made up of:</p>
+
+            <div class="person">
+                <h3><a href="#">Zenna Tavares ↗︎</a></h3>
+                <p>Zenna Tavares is a co-founder and director of Basis. Tavares’s research aims to understand how humans
+                    reason, that is, how they come to derive knowledge from observing and interacting with the world. He
+                    constructs computational and statistical tools that help advance his work on causal reasoning,
+                    probabilistic programming, and other areas.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Eli Bingham ↗︎</a></h3>
+                <p>Eli Bingham is a co-founder and director of Basis, a machine learning fellow in the Data Sciences
+                    Platform at the Broad Institute of MIT and Harvard, a co-creator and core developer of the Pyro
+                    probabilistic programming language, and formerly a senior research scientist at Uber AI Labs. He
+                    focuses on research at the intersection of probabilistic machine learning, programming languages,
+                    and biology and on bringing that research to practice by delivering high-quality open-source
+                    software to many thousands of users.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Emily Mackevicius ↗︎</a></h3>
+                <p>Emily Mackevicius is a co-founder and director of Basis, where she leads the Collaborative
+                    Intelligent Systems group. She did her postdoctoral work studying memory-expert birds in the Aronov
+                    lab and the Center for Theoretical Neuroscience at Columbia, and her PhD work studying how birds
+                    learn to sing in the Fee lab at MIT. Her theoretical work is strongly grounded in experimental
+                    practice, currently high-resolution behavioral recordings of groups of animals foraging in
+                    environments ranging from NYC to Arctic Alaska.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Martin Jankowiak ↗︎</a></h3>
+                <p>Martin Jankowiak is a research scientist (part-time) at Basis, a machine learning fellow in the Data
+                    Sciences Platform at the Broad Institute of MIT and Harvard and a co-creator and core developer of
+                    Pyro and NumPyro. He was previously a senior research scientist at Uber AI Labs and has a PhD in
+                    theoretical physics from Stanford. He works on a wide range of topics across probabilistic machine
+                    learning, high-dimensional statistics and applications in computational biology.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Rafal Urbaniak ↗︎</a></h3>
+                <p>Rafal Urbaniak is a research scientist at Basis, specializing in Bayesian methods and causal
+                    probabilistic programming. His interests include criminal evidence evaluation, bias in natural
+                    language processing, and online aggression. At Basis, he develops advanced tools for causal
+                    explanation to inform policy-making decisions and identify collaboration strategies in animal
+                    behavior. Rafal holds a Ph.D. in Logic and Philosophy of Mathematics from the University of Calgary
+                    and has held positions at the Research Foundation Flanders, Trinity College Dublin, and the
+                    University of Bristol.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Ria Das ↗︎</a></h3>
+                <p>Ria Das is a research scientist (part-time) at Basis, interested in automating scientific discovery
+                    via program synthesis and probabilistic programming. She is currently a PhD student at MIT, and
+                    previously was an undergraduate and masters student at MIT, where she worked on modeling causal
+                    discovery in a commonsense reasoning domain (the Autumn project) with Zenna Tavares, Armando
+                    Solar-Lezama, and Josh Tenenbaum.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Michelangelo Naim ↗︎</a></h3>
+                <p>Michi Naim is a research scientist at Basis. He was previously an ICoN Postdoctoral Fellow at MIT
+                    working with Guangyu Robert Yang using AI to model the brain. He finished his Ph.D. at the Weizmann
+                    Institute of Science under supervision of Misha Tsodyks, during which he spent some time at the
+                    Institute for Advanced Studies and at Kavli Institute for Theoretical Physics.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Dmitry Batenkov ↗︎</a></h3>
+                <p>Dima Batenkov is a research scientist at Basis. He was previously an assistant professor of applied
+                    mathematics at Tel-Aviv University and a postdoctoral fellow at MIT.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Jack Feser ↗︎</a></h3>
+                <p>Jack Feser is a research scientist at Basis. He was previously an assistant professor of computer
+                    science at Hamilton College and completed his Ph.D. at MIT with Armando Solar-Lezama. His research
+                    interests are in programming languages and automated programming, particularly as applied to
+                    relational databases.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Fritz Obermeyer ↗︎</a></h3>
+                <p>Fritz Obermeyer is a research scientist (part-time) at Basis. He works on Pyro and specializes in
+                    Bayesian machine learning. He earned a PhD in Programming Language Theory and has worked on machine
+                    learning platforms at Salesforce, Google, and Uber. Currently, he is researching applications of
+                    large language models to decision making.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Tim Cooijmans ↗︎</a></h3>
+                <p>Tim Cooijmans is a research scientist at Basis. His research focuses on the dynamics and stability of
+                    gradient-based learning, particularly in challenging systems such as recurrent and attentive neural
+                    networks and multi-agent reinforcement learning. He holds a PhD from Mila. Tim has previously worked
+                    on radiation simulation tooling at CERN, on music generation at Google Brain’s Magenta and on
+                    approximate automatic differentiation at DeepMind.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Cambridge Yang ↗︎</a></h3>
+                <p>Cambridge Yang is a research scientist at Basis. His research focuses on programming systems for
+                    intelligent agents, integrating formal methods and theoretical machine learning. He developed new
+                    frameworks for reinforcement learning objectives beyond traditional rewards and investigated their
+                    learnability. He also worked on optimizing probabilistic programming systems and applying machine
+                    learning to compiler optimizations. He is completing his PhD at MIT in the Programming Systems Group
+                    with Michael Carbin, and holds a BS from Berkeley EECS.</p>
+            </div>
+
+            <div class="person">
+                <h3>Tianyang Li</h3>
+                <p>Tianyang Li is a research scientist at Basis, interested in both theoretical foundations and
+                    practical applications of artificial intelligence and machine learning. He obtained his computer
+                    science Ph.D. from the University of Texas at Austin, and previously was a quantitative researcher
+                    at a systematic investing firm.</p>
+            </div>
+
+            <div class="person">
+                <h3>Yixiu Zhao</h3>
+                <p>Yixiu Zhao is a research engineer at Basis. He holds an applied physics Ph.D. from Stanford
+                    University, where his research focused on probabilistic inference and generative models. Yixiu is
+                    broadly interested in how humans and AIs understand the world by building abstractions from
+                    observation and interaction.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Matt Levine ↗︎</a></h3>
+                <p>Matt Levine is a research scientist at Basis. He studies methodologies at the intersection of machine
+                    learning, dynamical systems, and uncertainty quantification, with the goal of improving prediction
+                    and inference in biological and physical systems. He is especially interested in approaches that
+                    integrate mechanistic and data-driven modeling, and that scale to real, messy data. Matt holds a PhD
+                    from Caltech and was a postdoctoral fellow at the Broad Institute’s Eric and Wendy Schmidt Center.
+                </p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Kiran Gopinathan ↗︎</a></h3>
+                <p>Kiran Gopinathan is a research scientist at Basis. She previously completed her postdoc with Talia
+                    Ringer at UIUC, and before that earned her PhD in Programming Languages Research from the National
+                    University of Singapore on automating the maintenance of formally verified software. Her research
+                    interests cover formal verification, program synthesis, type systems, language design and proof
+                    engineering.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Dat Nguyen ↗︎</a></h3>
+                <p>Dat Nguyen is a joint Postdoctoral Fellow at Basis and at Nada Amin’s lab at Harvard, where he
+                    explores the intersection of programming languages and AI. He previously pursued a PhD at the
+                    University of Melbourne, leveraging graph modeling and program synthesis to improve deep learning
+                    models.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Ralph Peterson ↗︎</a></h3>
+                <p>Ralph Peterson is a Postdoctoral Fellow at Basis, where he develops multi-agent models to study
+                    animal behavior. He is currently conducting fieldwork on collective behavior in NYC’s urban rat
+                    populations. Ralph earned his PhD in Neural Science from NYU, where he investigated vocal
+                    communication and auditory processing in social rodents using computational neuroethological
+                    approaches. Prior to his PhD, he developed quantitative methods for analyzing animal behavior at
+                    Harvard Medical School.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Archana Warrier ↗︎</a></h3>
+                <p>Archana Warrier is a research trainee at Basis and a Master’s student at TU Kaiserslautern,
+                    co-mentored by Zenna Tavares and Sebastian Vollmer. Her interests lie in the fields of causality and
+                    Bayesian inference.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Andy Zane ↗︎</a></h3>
+                <p>Andy Zane is a visiting researcher at Basis and a PhD candidate in UMass Amherst’s College of
+                    Information and Computer Sciences. His broad research interests include Bayesian modeling,
+                    causality, and decision theory, while recent efforts have explored ways optimal experimental design
+                    can mitigate false accusations in police lineups. Previously, he led development of business
+                    intelligence and industrial automation tools in the natural resource industries, and still consults
+                    in this sector.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Jean Yoo ↗︎</a></h3>
+                <p>Jean Yoo is a research trainee at Basis and an incoming master’s student at Brown University (Fall
+                    2026). Her research interests broadly lie in visual computing and AI: developing systems that can
+                    reason about the visual world and generate and edit visual data, leveraging neurosymbolic methods to
+                    approach these problems.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Tom O’Connell ↗︎</a></h3>
+                <p>Tom O’Connell is collaborating with Basis while on sabbatical from his position as an Associate
+                    Professor of Computer Science at Skidmore College. He completed a Ph.D. in Computer Science at The
+                    University at Albany under the direction of Richard Stearns. His dissertation applied theoretical
+                    computer science to bounded rationality and mechanism design. Previously he was a Systems Software
+                    Developer at IBM.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Yichao Liang ↗︎</a></h3>
+                <p>Yichao is a research intern at Basis and a PhD student at the Computational and Biological Learning
+                    Lab (CBL) at Cambridge, supervised by Adrian Weller. He also collaborates closely with amazing
+                    people from the Computational Cognitive Science group (CoCoSci) at MIT and the Visual Geometry Group
+                    (VGG) at Oxford. His research focuses on the complementary goals of developing generally competent
+                    embodied agents (AGI) and understanding human intelligence.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Ines Aitsahalia ↗︎</a></h3>
+                <p>Ines Aitsahalia is a research intern at Basis. She is a PhD candidate at Columbia University in the
+                    Center for Theoretical Neuroscience and New York State Psychiatric Institute. She is interested in
+                    mechanisms of causal attribution in human cognition, particularly focused on modeling individual
+                    differences.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Dan Waxman ↗︎</a></h3>
+                <p>Dan Waxman is a research intern at Basis and a PhD candidate at Stony Brook University. His research
+                    interests include probabilistic machine learning and causal inference, broadly interpreted, with
+                    particular focuses on dynamic environments and causal structure learning. He is also involved with
+                    applications of these methods as part of the Southwest Urban Integrated Field Laboratory.</p>
+            </div>
+
+            <div class="person">
+                <h3>Alyse Portera</h3>
+                <p>Alyse Portera is business operations manager at Basis. She has over 20 years of business, human
+                    resources and operational management experience in the life sciences, government and non-profit
+                    sectors. Alyse was the Regional Director of Research Operations at the Howard Hughes Medical
+                    Institute and prior to that she was the Deputy Commissioner for Administration at the Westchester
+                    County Health Department in New York where she oversaw all finance functions, human resources,
+                    facilities management, information technology, emergency preparedness and corporate administrative
+                    functions.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Karen Schroeder ↗︎</a></h3>
+                <p>Karen Schroeder is research operations manager at Basis. She was previously a postdoctoral research
+                    scientist in brain-computer interfaces and computational/systems neuroscience at Columbia’s
+                    Zuckerman Institute, and holds a Ph.D. in neural engineering from the University of Michigan. Her
+                    research interests include meta-science for AI research, and neuroAI.</p>
+            </div>
+
+            <div class="person">
+                <h3>Ravi Deedwania</h3>
+                <p>Ravi Deedwania is a scientific proposal writer at Basis. He has previously worked as a product
+                    manager at venture-backed startups and a research assistant at the White House Council of Economic
+                    Advisors. He has an S.B. in economics from MIT and a JD from Yale Law School.</p>
+            </div>
+
+            <div class="person">
+                <h3>Francis Northwood</h3>
+                <p>Francis Northwood is an operations associate at Basis. He is also a writer and researcher interested
+                    in finance, real estate, and architecture. His writing can be found in the San Francisco Chronicle,
+                    The Baffler, and The Drift.</p>
+            </div>
+
+            <div class="person">
+                <h3>Anna Hidalgo</h3>
+                <p>Anna Hidalgo is an operations consultant (part time) at Basis. She is helping the organization to
+                    grow its capacity and general operations. She holds a Ph.D. in Sociology (Columbia University), with
+                    subfield specialities in cultural sociology, gender, sexuality, and race.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advisors (placed AFTER Who We Are) -->
+    <div class="section" id="advisors">
+        <div class="left">
+            <h1>Advisors</h1>
+        </div>
+        <div class="right">
+            <p>Want to work with us? Learn more about opportunities to join our research collaborations and career
+                opportunities, <a href="#">here</a>.</p>
+
+            <div class="person">
+                <h3><a href="#">Armando Solar-Lezama ↗</a></h3>
+                <p>Solar-Lezama is a professor at MIT EECS and an associate director and the COO of MIT CSAIL, where he
+                    leads the Computer-Aided Programming Group.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Joshua Tenenbaum ↗</a></h3>
+                <p>Tenenbaum is professor of Computational Cognitive Science in MIT’s Department of Brain and Cognitive
+                    Sciences, Scientific Director with the MIT Quest for Intelligence, an investigator at the Center for
+                    Brains, Minds and Machines and MIT CSAIL, and a MacArthur Fellow.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Kevin Ellis ↗</a></h3>
+                <p>Ellis is an assistant professor of computer science at Cornell, where his group works on artificial
+                    intelligence, deep learning and program synthesis.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Anthony Philippakis ↗</a></h3>
+                <p>Philippakis is chief data officer of the Broad Institute of MIT and Harvard, co-director of the Eric
+                    and Wendy Schmidt Center for AI and Biology, a venture partner at GV, and a cardiologist at Brigham
+                    and Women’s Hospital.</p>
+            </div>
+
+            <div class="person">
+                <h3><a href="#">Rui Costa ↗</a></h3>
+                <p>Costa is a professor of neuroscience and outgoing CEO of the Zuckerman Institute at Columbia, the
+                    incoming CEO of the Allen Institute, and an elected member of the European Molecular Biology
+                    Organization and the National Academy of Medicine.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us -->
+    <div class="section" id="contact">
+        <div class="left">
+            <h1>Contact Us</h1>
+        </div>
+        <div class="right">
+            <p>If you are interested in supporting our mission to create a new space for AI research with financial or
+                other resources, or collaborating with us on either <a href="#">core technology</a> or any of our
+                current <a href="#">challenge problems</a>, please reach us at <a
+                    href="mailto:contact@basis.ai">contact@basis.ai</a>.</p>
+            <p>If you’d like to stay up to date on Basis news, software releases, or challenge problems please join our
+                <a href="#">mailing list</a>.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <a href="#">Twitter / X</a> |
+        <a href="#">Mailing List</a> |
+        <a href="mailto:contact@basis.ai">contact@basis.ai</a> |
+        <a href="#">Donate</a>
+    </footer>
+
+</body>
+</html>

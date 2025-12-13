@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SuperRare Marketplace Full Page</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* =============================
+       GLOBAL STYLES
+    ============================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #181818;
+      color: #fff;
+      line-height: 1.5;
+      padding-top: 80px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+
+    /* =============================
+       NAVBAR
+    ============================= */
+    header {
+      background-color: #1f1f1f;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: #ccc;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #fff;
+    }
+
+    .wallet-btn {
+      background-color: #fff;
+      color: #000;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .wallet-btn:hover {
+      background-color: #ccc;
+    }
+
+    /* =============================
+       FILTER SECTION
+    ============================= */
+    .filters {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 25px 40px;
+      flex-wrap: wrap;
+    }
+
+    .filter-icon {
+      background-color: #222;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .filter-btn {
+      background-color: #2a2a2a;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover {
+      background-color: #444;
+    }
+
+    /* =============================
+       ARTWORK GRID
+    ============================= */
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      padding: 0 40px 80px;
+    }
+
+    .art-card {
+      background-color: #202020;
+      border-radius: 12px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .art-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .art-card img {
+      height: 250px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .art-title {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .artist {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .artist img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+
+    .artist span {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .bid-info {
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    /* =============================
+       FOOTER
+    ============================= */
+    footer {
+      background-color: #111;
+      padding: 50px 40px;
+      color: #ccc;
+      margin-top: 60px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1400px;
+      margin: auto;
+      gap: 40px;
+    }
+
+    .footer-left ul {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .footer-left ul li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icons i {
+      font-size: 1.2rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons i:hover {
+      color: #fff;
+    }
+
+    .footer-middle {
+      display: flex;
+      gap: 50px;
+    }
+
+    .footer-middle ul {
+      list-style: none;
+    }
+
+    .footer-middle li {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .footer-middle li:hover {
+      color: #fff;
+    }
+
+    .footer-right {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* =============================
+       RESPONSIVE DESIGN
+    ============================= */
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      nav ul {
+        gap: 15px;
+      }
+
+      .filters {
+        justify-content: center;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding-top: 120px;
+      }
+
+      .art-grid {
+        gap: 25px;
+        padding: 0 20px 60px;
+      }
+
+      .filter-btn {
+        font-size: 0.8rem;
+        padding: 8px 14px;
+      }
+
+      .filters {
+        padding: 20px;
+        justify-content: center;
+      }
+
+      .footer {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">💎 SuperRare</div>
+    <nav>
+      <ul>
+        <li><a href="curation.html">CURATION</a></li>
+        <li><a href="#" class="active">MARKETPLACE</a></li>
+        <li><a href="#">OFFLINE</a></li>
+        <li><a href="#">$RARE</a></li>
+      </ul>
+    </nav>
+    <button class="wallet-btn">Connect Wallet</button>
+  </header>
+
+  <div class="filters">
+    <div class="filter-icon"><i class="fas fa-sliders-h"></i></div>
+    <button class="filter-btn">Primary Sales</button>
+    <button class="filter-btn">Secondary Sales</button>
+  </div>
+
+  <div class="art-grid">
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Fca7c9605f5cf4c6a63c0b313b4d1761f14f57564602f26ec40f4c9fb5d0a346d.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=9056971a12abedc750e60ffbf8d99563">
+      <h3 class="art-title">Truman #5</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=10">
+        <span>amirrahtiarts</span>
+      </div>
+      <p class="bid-info">High bid 0.210Ξ ($762) by overflowing</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">TX1: The Sermon</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=14">
+        <span>yeah_gesture</span>
+      </div>
+      <p class="bid-info">High bid 0.022Ξ ($80) by along7</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">Self-Portrait 2015 - bitPaintr</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=20">
+        <span>vanarman</span>
+      </div>
+      <p class="bid-info">List 4.990Ξ ($17.8k)</p>
+      <p class="bid-info">Reserve 3.690Ξ ($13.2k)</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Feeadb99ade4fdca853559a24a75d8f4e7b51da80636d17ee12c19e108f7354f4.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=1f6ecf954018d4da642313fc4fe55601">
+      <h3 class="art-title">ewm.06</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=45">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+  </div>
+  <div class="art-grid">
+
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">ewm.05</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=11">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Fad60aa510b208c3a003e1cbec22aaba28fc3400053cbacfb159156b5250b0bea.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=291cad695fe5507b29e5871d0b8f4b66">
+      <h3 class="art-title">ewm.04</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=12">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F21da99990816924b1d1b7ff35e8b2a310f96b0505588b47d9f9ed42d64e307e9.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=8358c6f47ad25792bf10abc26a61318c">
+      <h3 class="art-title">ewm.03</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=13">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F3bee44ddb3f01de9f0cdee4c744f6eb8c12b5f52565dae33b059912e24b412af.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=55e1fabf7acd1d690c14f07fe1f3e1ec">
+      <h3 class="art-title">ewm.02</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=14">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+  </div>
+
+  <div class="art-grid">
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Fca7c9605f5cf4c6a63c0b313b4d1761f14f57564602f26ec40f4c9fb5d0a346d.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=9056971a12abedc750e60ffbf8d99563">
+      <h3 class="art-title">Truman #5</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=10">
+        <span>amirrahtiarts</span>
+      </div>
+      <p class="bid-info">High bid 0.210Ξ ($762) by overflowing</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">TX1: The Sermon</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=14">
+        <span>yeah_gesture</span>
+      </div>
+      <p class="bid-info">High bid 0.022Ξ ($80) by along7</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">Self-Portrait 2015 - bitPaintr</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=20">
+        <span>vanarman</span>
+      </div>
+      <p class="bid-info">List 4.990Ξ ($17.8k)</p>
+      <p class="bid-info">Reserve 3.690Ξ ($13.2k)</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Feeadb99ade4fdca853559a24a75d8f4e7b51da80636d17ee12c19e108f7354f4.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=1f6ecf954018d4da642313fc4fe55601">
+      <h3 class="art-title">ewm.06</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=45">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+  </div>
+
+  <div class="art-grid">
+ 
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">ewm.05</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=11">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Fad60aa510b208c3a003e1cbec22aaba28fc3400053cbacfb159156b5250b0bea.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=291cad695fe5507b29e5871d0b8f4b66">
+      <h3 class="art-title">ewm.04</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=12">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F21da99990816924b1d1b7ff35e8b2a310f96b0505588b47d9f9ed42d64e307e9.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=8358c6f47ad25792bf10abc26a61318c">
+      <h3 class="art-title">ewm.03</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=13">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F3bee44ddb3f01de9f0cdee4c744f6eb8c12b5f52565dae33b059912e24b412af.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=55e1fabf7acd1d690c14f07fe1f3e1ec">
+      <h3 class="art-title">ewm.02</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=14">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+  </div>
+    
+  <div class="art-grid">
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Fca7c9605f5cf4c6a63c0b313b4d1761f14f57564602f26ec40f4c9fb5d0a346d.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=9056971a12abedc750e60ffbf8d99563">
+      <h3 class="art-title">Truman #5</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=10">
+        <span>amirrahtiarts</span>
+      </div>
+      <p class="bid-info">High bid 0.210Ξ ($762) by overflowing</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">TX1: The Sermon</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=14">
+        <span>yeah_gesture</span>
+      </div>
+      <p class="bid-info">High bid 0.022Ξ ($80) by along7</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">Self-Portrait 2015 - bitPaintr</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=20">
+        <span>vanarman</span>
+      </div>
+      <p class="bid-info">List 4.990Ξ ($17.8k)</p>
+      <p class="bid-info">Reserve 3.690Ξ ($13.2k)</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Feeadb99ade4fdca853559a24a75d8f4e7b51da80636d17ee12c19e108f7354f4.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=1f6ecf954018d4da642313fc4fe55601">
+      <h3 class="art-title">ewm.06</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=45">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+  </div>
+
+ 
+  <div class="art-grid">
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">ewm.05</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=11">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Fad60aa510b208c3a003e1cbec22aaba28fc3400053cbacfb159156b5250b0bea.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=291cad695fe5507b29e5871d0b8f4b66">
+      <h3 class="art-title">ewm.04</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=12">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F21da99990816924b1d1b7ff35e8b2a310f96b0505588b47d9f9ed42d64e307e9.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=8358c6f47ad25792bf10abc26a61318c">
+      <h3 class="art-title">ewm.03</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=13">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F3bee44ddb3f01de9f0cdee4c744f6eb8c12b5f52565dae33b059912e24b412af.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=55e1fabf7acd1d690c14f07fe1f3e1ec">
+      <h3 class="art-title">ewm.02</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=14">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+  </div>
+
+  <div class="art-grid">
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Fca7c9605f5cf4c6a63c0b313b4d1761f14f57564602f26ec40f4c9fb5d0a346d.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=9056971a12abedc750e60ffbf8d99563">
+      <h3 class="art-title">Truman #5</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=10">
+        <span>amirrahtiarts</span>
+      </div>
+      <p class="bid-info">High bid 0.210Ξ ($762) by overflowing</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">TX1: The Sermon</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=14">
+        <span>yeah_gesture</span>
+      </div>
+      <p class="bid-info">High bid 0.022Ξ ($80) by along7</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">Self-Portrait 2015 - bitPaintr</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=20">
+        <span>vanarman</span>
+      </div>
+      <p class="bid-info">List 4.990Ξ ($17.8k)</p>
+      <p class="bid-info">Reserve 3.690Ξ ($13.2k)</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Feeadb99ade4fdca853559a24a75d8f4e7b51da80636d17ee12c19e108f7354f4.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=1f6ecf954018d4da642313fc4fe55601">
+      <h3 class="art-title">ewm.06</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=45">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+  </div>
+
+
+  <div class="art-grid">
+ 
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">ewm.05</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=11">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Fad60aa510b208c3a003e1cbec22aaba28fc3400053cbacfb159156b5250b0bea.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=291cad695fe5507b29e5871d0b8f4b66">
+      <h3 class="art-title">ewm.04</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=12">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F21da99990816924b1d1b7ff35e8b2a310f96b0505588b47d9f9ed42d64e307e9.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=8358c6f47ad25792bf10abc26a61318c">
+      <h3 class="art-title">ewm.03</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=13">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F3bee44ddb3f01de9f0cdee4c744f6eb8c12b5f52565dae33b059912e24b412af.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=55e1fabf7acd1d690c14f07fe1f3e1ec">
+      <h3 class="art-title">ewm.02</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=14">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+  </div>
+  
+  <div class="art-grid">
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Fca7c9605f5cf4c6a63c0b313b4d1761f14f57564602f26ec40f4c9fb5d0a346d.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=9056971a12abedc750e60ffbf8d99563">
+      <h3 class="art-title">Truman #5</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=10">
+        <span>amirrahtiarts</span>
+      </div>
+      <p class="bid-info">High bid 0.210Ξ ($762) by overflowing</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">TX1: The Sermon</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=14">
+        <span>yeah_gesture</span>
+      </div>
+      <p class="bid-info">High bid 0.022Ξ ($80) by along7</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">Self-Portrait 2015 - bitPaintr</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=20">
+        <span>vanarman</span>
+      </div>
+      <p class="bid-info">List 4.990Ξ ($17.8k)</p>
+      <p class="bid-info">Reserve 3.690Ξ ($13.2k)</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Feeadb99ade4fdca853559a24a75d8f4e7b51da80636d17ee12c19e108f7354f4.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=1f6ecf954018d4da642313fc4fe55601">
+      <h3 class="art-title">ewm.06</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=45">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+  </div>
+
+
+  <div class="art-grid">
+   
+    <div class="art-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80">
+      <h3 class="art-title">ewm.05</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=11">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Fad60aa510b208c3a003e1cbec22aaba28fc3400053cbacfb159156b5250b0bea.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=291cad695fe5507b29e5871d0b8f4b66">
+      <h3 class="art-title">ewm.04</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=12">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F21da99990816924b1d1b7ff35e8b2a310f96b0505588b47d9f9ed42d64e307e9.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=8358c6f47ad25792bf10abc26a61318c">
+      <h3 class="art-title">ewm.03</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=13">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+
+    <div class="art-card">
+      <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F3bee44ddb3f01de9f0cdee4c744f6eb8c12b5f52565dae33b059912e24b412af.png?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1678&s=55e1fabf7acd1d690c14f07fe1f3e1ec">
+      <h3 class="art-title">ewm.02</h3>
+      <div class="artist">
+        <img src="https://i.pravatar.cc/40?img=14">
+        <span>abosch</span>
+      </div>
+      <p class="bid-info">List -</p>
+    </div>
+  </div>
+
+  
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <ul>
+          <li><i class="fas fa-headset"></i> Support</li>
+          <li><i class="fas fa-file-alt"></i> Help Center</li>
+          <li><i class="fas fa-gem"></i> Rare.xyz</li>
+        </ul>
+
+        <div class="social-icons">
+          <i class="fab fa-x-twitter"></i>
+          <i class="fab fa-discord"></i>
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+
+      <div class="footer-middle">
+        <ul>
+          <li>Terms of Service</li>
+          <li>Privacy Notice</li>
+          <li>Report Content</li>
+          <li>Cookie Preferences</li>
+        </ul>
+
+        <ul>
+          <li>Community Guidelines</li>
+          <li>Private Sales</li>
+          <li>$RARE Bridge</li>
+        </ul>
+      </div>
+
+      <div class="footer-right">
+        <p>© 2025 SuperRare</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

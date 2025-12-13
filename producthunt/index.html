@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Hunt Clone</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 20px 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5em;
+            /* border-radius: 10px;
+            border: #333; */
+        }
+
+        .search-box {
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            background-color: #e1e1e1;
+        }
+
+        .nav-links a {
+            margin: 0 10px;
+            font-weight: 500;
+        }
+
+        .nav-right button {
+            margin-left: 10px;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .subscribe {
+            background-color: #ff6600;
+            color: #fff;
+        }
+
+        .signin {
+            background-color: #fff;
+            border: 1px solid #ff6600;
+            color: #ff6600;
+        }
+
+        /* Main Section */
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        .left-section {
+            flex: 3;
+        }
+
+        .right-section {
+            flex: 1;
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .right-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .right-section li {
+            margin-bottom: 15px;
+        }
+
+        /* Product Cards */
+        .product-card {
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card.highlight {
+            background: #fdf2e9;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-info h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .product-info p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .tags {
+            display: inline-block;
+            background: #eee;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            color: #333;
+        }
+
+        .votes p {
+            margin: 0;
+            text-align: right;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: rgb(16 24 40 / var(--tw-bg-opacity, 1));
+            padding: 50px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .footer-grid h4 {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .footer-grid p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .product-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .votes {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                margin-top: 10px;
+            }
+
+            .right-section {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="logo">P</div>
+            <input type="text" placeholder="Search ( ctrl + k )" class="search-box">
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Launches</a>
+            <a href="products.html">Products</a>
+            <a href="https://www.producthunt.com/newsletters?ref=header_nav">News</a>
+            <a href="#">Forums</a>
+            <a href="#">Advertise</a>
+        </nav>
+        <div class="nav-right">
+            <button class="subscribe">Subscribe</button>
+            <button class="signin">Sign in</button>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="container">
+        <section class="left-section">
+            <h2>Top Products Launching Today</h2>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>1. v0 for iOS</h3>
+                    <p>Build anything with AI</p>
+                    <span class="tags">iOS • Developer Tools • Vibe coding</span>
+                </div>
+                <div class="votes">
+                    <p>9 💬</p>
+                    <p>248 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card highlight">
+                <div class="product-info">
+                    <h3>2. AI CMO by Lindy</h3>
+                    <p>Launch 1000s of marketing experiments in minutes</p>
+                    <span class="tags">Productivity • Marketing • Artificial Intelligence</span>
+                </div>
+                <div class="votes">
+                    <p>14 💬</p>
+                    <p>194 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>3. Alai</h3>
+                    <p>Create high quality presentations using AI</p>
+                    <span class="tags">Design Tools • Productivity • Artificial Intelligence</span>
+                </div>
+                <div class="votes">
+                    <p>30 💬</p>
+                    <p>187 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>4. Starbase</h3>
+                    <p>Browser-based MCP server testing with AI chat integration</p>
+                    <span class="tags">Developer Tools • Artificial Intelligence • GitHub</span>
+                </div>
+                <div class="votes">
+                    <p>5 💬</p>
+                    <p>161 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>5. ChatFlow</h3>
+                    <p>Automate customer support with AI chatbots</p>
+                    <span class="tags">Customer Support • AI • Automation</span>
+                </div>
+                <div class="votes">
+                    <p>11 💬</p>
+                    <p>150 ⬆️</p>
+                </div>
+            </div>
+            <div class="image">
+                <img loading="eager" fetchpriority="high"
+                    srcset="https://ph-files.imgix.net/c7656d0d-c5a7-42dd-a70d-05050d73f65d.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1&amp;dpr=1 1x, https://ph-files.imgix.net/c7656d0d-c5a7-42dd-a70d-05050d73f65d.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1&amp;dpr=2 2x, https://ph-files.imgix.net/c7656d0d-c5a7-42dd-a70d-05050d73f65d.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1&amp;dpr=3 3x"
+                    src="https://ph-files.imgix.net/c7656d0d-c5a7-42dd-a70d-05050d73f65d.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1"
+                    style="aspect-ratio:5 / 1;width:100%;height:auto" alt="Rippling" class="size-full object-contain">
+            </div>
+            <div class="product-card highlight">
+                <div class="product-info">
+                    <h3>6. TrendAnalyzer</h3>
+                    <p>Spot trends before they go viral</p>
+                    <span class="tags">Marketing • Analytics • AI</span>
+                </div>
+                <div class="votes">
+                    <p>33 💬</p>
+                    <p>400 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>7. DesignBot</h3>
+                    <p>Create stunning visuals in seconds</p>
+                    <span class="tags">Design • Creativity • AI Tools</span>
+                </div>
+                <div class="votes">
+                    <p>20 💬</p>
+                    <p>275 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card highlight">
+                <div class="product-info">
+                    <h3>8. CodeWhiz</h3>
+                    <p>Auto-generate clean code for your projects</p>
+                    <span class="tags">Development • Productivity • AI</span>
+                </div>
+                <div class="votes">
+                    <p>19 💬</p>
+                    <p>250 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>9. NoteMate</h3>
+                    <p>Smart AI notetaker for students and professionals</p>
+                    <span class="tags">Productivity • AI • Notes</span>
+                </div>
+                <div class="votes">
+                    <p>7 💬</p>
+                    <p>112 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card highlight">
+                <div class="product-info">
+                    <h3>10. MarketGenie</h3>
+                    <p>Generate marketing content in seconds using AI</p>
+                    <span class="tags">Marketing • AI • Content Creation</span>
+                </div>
+                <div class="votes">
+                    <p>25 💬</p>
+                    <p>330 ⬆️</p>
+                </div>
+            </div>
+
+        </section>
+
+        <aside class="right-section">
+            <h3>Trending Forum Threads</h3>
+            <ul>
+                <li><b>Would you pay more for a product with great support?</b><br><small>Upvote (6) • 1</small></li>
+                <li><b>Tiny A/B Test is available now, for free</b><br><small>Upvote (35) • 3</small></li>
+                <li><b>How do you treat your competition? Is your stance more adversarial or
+                        friendly?</b><br><small>Upvote (15) • 8</small></li>
+                <li><b>How much money would you be willing to spend from your own savings to start a
+                        business?</b><br><small>Upvote (79) • 65</small></li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>Engineering & Development</h4>
+                <p>Vibe Tools</p>
+                <p>AI Agents</p>
+                <p>Code Editors</p>
+                <p>Community</p>
+                <p>Open Source</p>
+                <p>Projects</p>
+                <p>Support</p>
+                <p>API</p>
+                <p>Documentation</p>
+                <p>Updates</p>
+            </div>
+            <div>
+                <h4>Design & Creative</h4>
+                <p>Video Editing</p>
+                <p>Templates</p>
+                <p>Graphics</p>
+                <p>Tutorials</p>
+                <p>Showcase</p>
+                <p>Icons</p>
+                <p>Fonts</p>
+                <p>Mockups</p>
+                <p>Tools</p>
+                <p>Resources</p>
+            </div>
+            <div>
+                <h4>Productivity</h4>
+                <p>AI Notes</p>
+                <p>Team Tools</p>
+                <p>Search</p>
+                <p>Time Apps</p>
+                <p>Learning</p>
+                <p>Tasks</p>
+                <p>Calendar</p>
+                <p>Reminders</p>
+                <p>Reports</p>
+                <p>Insights</p>
+            </div>
+            <div>
+                <h4>Marketing & Sales</h4>
+                <p>Leads</p>
+                <p>Automation</p>
+                <p>Analytics</p>
+                <p>Content</p>
+                <p>Networking</p>
+                <p>SEO</p>
+                <p>Ads</p>
+                <p>Campaigns</p>
+                <p>Email</p>
+                <p>Strategy</p>
+            </div>
+        </div>
+        <p class="footer-bottom">© 2025 Product Hunt Clone | <a href="about.html">About</a> | <a href="#">Privacy</a> |
+            <a href="#">Terms</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>

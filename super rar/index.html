@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuperRare Style Page</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* =============================
+       Global Styles
+    ============================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #181818;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* =============================
+       Navbar
+    ============================= */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1b1b1b;
+      padding: 12px 40px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #aaa;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search {
+      background-color: #2a2a2a;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      color: white;
+    }
+
+    .connect-btn {
+      background-color: white;
+      color: black;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .connect-btn:hover {
+      background-color: #ccc;
+    }
+
+    /* =============================
+       Hero Section (img 1)
+    ============================= */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1740&q=80") no-repeat center / cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .content {
+      position: relative;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    .content h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+    }
+
+    /* =============================
+       General Section Styles
+    ============================= */
+    section {
+      padding: 80px 40px;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    /* =============================
+       Featured Section (img 2)
+    ============================= */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .featured-card {
+      background-color: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .featured-card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .card-info {
+      padding: 15px 20px;
+    }
+
+    .card-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    /* =============================
+       Auctions Section (img 3)
+    ============================= */
+    .auctions-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .see-all {
+      background: transparent;
+      color: white;
+      border: 1px solid #555;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .see-all:hover {
+      background: #333;
+    }
+
+    .auctions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .auction-card {
+      background-color: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .auction-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .auction-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+
+    .auction-info {
+      padding: 18px;
+    }
+
+    .auction-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    /* =============================
+       Result of Habits (img 4)
+    ============================= */
+    .description {
+      max-width: 900px;
+      color: #bcbcbc;
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+
+    .habits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .habits-card {
+      background-color: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .habits-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .habits-card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    /* =============================
+       Subscribe & Gallery (img 5)
+    ============================= */
+    .subscribe-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      margin: 60px auto;
+    }
+
+    .subscribe-container {
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .subscribe-container h2 {
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+    }
+
+    .subscribe-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #111;
+      border-radius: 50px;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .subscribe-form input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 14px 20px;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .subscribe-form button {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 14px 20px;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .subscribe-form button:hover {
+      background-color: #ccc;
+    }
+
+    .gallery-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 50px auto;
+    }
+
+    .gallery-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .gallery-text {
+      position: absolute;
+      color: #fff;
+      font-family: "Courier New", monospace;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .top-left {
+      top: 10px;
+      left: 15px;
+    }
+
+    .bottom-left {
+      bottom: 10px;
+      left: 15px;
+    }
+
+    .top-right {
+      top: 10px;
+      right: 15px;
+    }
+
+    .bottom-right {
+      bottom: 10px;
+      right: 15px;
+    }
+
+    /* =============================
+       Footer
+    ============================= */
+    .footer {
+      background-color: #111;
+      padding: 50px 40px;
+      color: #ccc;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1400px;
+      margin: auto;
+      gap: 40px;
+    }
+
+    .footer-left ul {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .footer-left ul li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icons i {
+      font-size: 1.2rem;
+      color: #ccc;
+      cursor: pointer;
+    }
+
+    .footer-middle {
+      display: flex;
+      gap: 50px;
+    }
+
+    .footer-middle ul {
+      list-style: none;
+    }
+
+    .footer-middle li {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .footer-right {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* =============================
+       Responsive Styles
+    ============================= */
+    @media (max-width: 900px) {
+      nav ul {
+        display: none;
+      }
+
+      .search {
+        display: none;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">💎 SuperRare</div>
+    <nav>
+      <ul>
+        <li><a href="curation.html">CURATION</a></li>
+        <li><a href="market.html">MARKETPLACE</a></li>
+        <li><a href="#">OFFLINE</a></li>
+        <li><a href="#">$RARE</a></li>
+      </ul>
+    </nav>
+    <div class="actions">
+      <input type="text" placeholder="Search..." class="search">
+      <button class="connect-btn">Connect Wallet</button>
+    </div>
+  </header>
+
+  <!-- Hero Section (img 1) -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>{As Above, So Within}</h1>
+      <p>
+        The debut of Atelier Σigma, a collaboration between French artist and musician Agoria
+        (Sébastien Devaud) and visual artist Johan Lescure.
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured Section (img 2) -->
+  <section>
+    <h2>Featured</h2>
+    <div class="featured-grid">
+      <div class="featured-card">
+        <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731" alt="">
+        <div class="card-info"><h3>The Last of Us</h3></div>
+      </div>
+      <div class="featured-card">
+        <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731" alt="">
+        <div class="card-info"><h3>The Feeling of Isolation</h3></div>
+      </div>
+      <div class="featured-card">
+        <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731" alt="">
+        <div class="card-info"><h3>Blue Shadow</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Auctions Section (img 3) -->
+  <section>
+    <div class="auctions-header">
+      <h2>Auctions</h2><button class="see-all">See All</button>
+    </div>
+    <div class="auctions-grid">
+      <div class="auction-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"><div class="auction-info"><h3>STAY CLOSER</h3></div></div>
+      <div class="auction-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"><div class="auction-info"><h3>The Cry of the Earth</h3></div></div>
+      <div class="auction-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"><div class="auction-info"><h3>TX1: The Sermon</h3></div></div>
+    </div>
+  </section>
+
+  <!-- Result of Habits (img 4) -->
+  <section>
+    <h2>The Result of Habits by Alexis Olin</h2>
+    <p class="description">Alexis Olin's latest series, The Result of Habits, explores how repetition and routine shape both technique and perception...</p>
+    <div class="habits-grid">
+      <div class="habits-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"></div>
+      <div class="habits-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"></div>
+      <div class="habits-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"></div>
+      <div class="habits-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"></div>
+    </div>
+  </section>
+
+  <!-- Subscribe + Gallery (img 5) -->
+  <section class="subscribe-section">
+    <div class="subscribe-container">
+      <h2>Subscribe for weekly updates on art and culture</h2>
+      <div class="subscribe-form">
+        <input type="email" placeholder="Enter your email...">
+        <button>&#8594;</button>
+      </div>
+    </div>
+  </section>
+  <div class="gallery-container">
+    <div class="gallery-text top-left">Offline...</div>
+    <div class="gallery-text bottom-left">SuperRare</div>
+    <div class="gallery-text top-right">A Gallery By</div>
+    <div class="gallery-text bottom-right">243 Bowery NYC</div>
+    <img alt="" decoding="async" fetchpriority="low" data-src="https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=50&amp;dpr=2&amp;fit=max&amp;cs=origin&amp;s=90485b6e80604f2b32b3761dc6757d7d" data-srcset="https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=100&amp;s=166891875297e438af17c05a0fe09136 100w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=116&amp;s=9e4b8ae1edacf593fce49d6220fcafb3 116w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=135&amp;s=8b73524547d661c00e86abad6152c39f 135w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=156&amp;s=34640f957c70dad57e6a7a9288fa9779 156w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=181&amp;s=79cbf25de61d4526f7f9916634199bf7 181w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=210&amp;s=4129242266d5b91597aee762bae5dadc 210w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=244&amp;s=50db303be5e0ff16d241bef81a332969 244w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=283&amp;s=afc3d1311605005732cf8bae1c74d344 283w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=328&amp;s=6142f3246e28b0eebca84e4f6edf1a65 328w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=380&amp;s=5e3180e2a9d5b7c34879b60299c7438c 380w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=441&amp;s=cfd7b2575509ddfa0a905f9a6ecc55d8 441w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=512&amp;s=1a18180d34825e4da18c8d244e6256c2 512w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=594&amp;s=e771ab27e6b93c6cf2e3ce5f2cb1d4d9 594w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=689&amp;s=260430a8a7037766af768c241bde4938 689w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=799&amp;s=3bdbd63f4f7b079f912714d85a64913d 799w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=927&amp;s=9409f28a45df8e706a23506c6f882623 927w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=1075&amp;s=7785dac7e5ca8c136ba18c34ce2f669b 1075w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=1247&amp;s=5f0481b9f7454c797824d794e456d9e3 1247w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=1446&amp;s=4f2520eb88d907f7797b5ddc0c37fc70 1446w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=1678&amp;s=ae7f369061e06aadb45515c859248b1c 1678w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=1946&amp;s=a08d31afb3d0f528364008a31350a817 1946w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=2257&amp;s=aafafaeac2a0d798b452e7753bd03797 2257w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=2619&amp;s=048b2622a4f32d3283d99f5439f3d575 2619w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=3038&amp;s=afde60667edc534dd9cf5b60a9a8c44a 3038w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=3524&amp;s=e3f65a2250a759febfe304892dd4c56e 3524w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=4087&amp;s=2ae20e6bfde1061ee8f8eeada6466c51 4087w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=4741&amp;s=abad2cccf9d2dc721d1fd12bddb624f5 4741w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=5500&amp;s=557a52df96a24bac058ec60e5b778131 5500w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=6380&amp;s=317944e5cbf4d7dde6804f3fd30e7555 6380w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=7401&amp;s=586a2a1dc113176ec32749650b761cd9 7401w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=8192&amp;s=adef5b5af94a8346b35ab1eedebec8ba 8192w" data-sizes="(max-width:1024px) 800px, (max-width: 1280px) 390px, 1200px" class="cursor-pointer absolute inset-0 h-full w-full object-cover ls-is-cached lazyloaded" sizes="(max-width:1024px) 800px, (max-width: 1280px) 390px, 1200px" srcset="https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=100&amp;s=166891875297e438af17c05a0fe09136 100w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=116&amp;s=9e4b8ae1edacf593fce49d6220fcafb3 116w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=135&amp;s=8b73524547d661c00e86abad6152c39f 135w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=156&amp;s=34640f957c70dad57e6a7a9288fa9779 156w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=181&amp;s=79cbf25de61d4526f7f9916634199bf7 181w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=210&amp;s=4129242266d5b91597aee762bae5dadc 210w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=244&amp;s=50db303be5e0ff16d241bef81a332969 244w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=283&amp;s=afc3d1311605005732cf8bae1c74d344 283w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=328&amp;s=6142f3246e28b0eebca84e4f6edf1a65 328w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=380&amp;s=5e3180e2a9d5b7c34879b60299c7438c 380w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=441&amp;s=cfd7b2575509ddfa0a905f9a6ecc55d8 441w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=512&amp;s=1a18180d34825e4da18c8d244e6256c2 512w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=594&amp;s=e771ab27e6b93c6cf2e3ce5f2cb1d4d9 594w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=689&amp;s=260430a8a7037766af768c241bde4938 689w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=799&amp;s=3bdbd63f4f7b079f912714d85a64913d 799w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=927&amp;s=9409f28a45df8e706a23506c6f882623 927w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=1075&amp;s=7785dac7e5ca8c136ba18c34ce2f669b 1075w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=1247&amp;s=5f0481b9f7454c797824d794e456d9e3 1247w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=1446&amp;s=4f2520eb88d907f7797b5ddc0c37fc70 1446w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=1678&amp;s=ae7f369061e06aadb45515c859248b1c 1678w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=1946&amp;s=a08d31afb3d0f528364008a31350a817 1946w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=2257&amp;s=aafafaeac2a0d798b452e7753bd03797 2257w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=2619&amp;s=048b2622a4f32d3283d99f5439f3d575 2619w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=3038&amp;s=afde60667edc534dd9cf5b60a9a8c44a 3038w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=3524&amp;s=e3f65a2250a759febfe304892dd4c56e 3524w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=4087&amp;s=2ae20e6bfde1061ee8f8eeada6466c51 4087w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=4741&amp;s=abad2cccf9d2dc721d1fd12bddb624f5 4741w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=5500&amp;s=557a52df96a24bac058ec60e5b778131 5500w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=6380&amp;s=317944e5cbf4d7dde6804f3fd30e7555 6380w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=7401&amp;s=586a2a1dc113176ec32749650b761cd9 7401w,
+https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=100&amp;fit=max&amp;cs=origin&amp;w=8192&amp;s=adef5b5af94a8346b35ab1eedebec8ba 8192w" src="https://pixura.imgix.net/https%3A%2F%2Fimages.prismic.io%2Fsuperrare%2FaJAUsqTt2nPbZzSN_19.jpg%3Fauto%3Dformat%2Ccompress%3Fauto%3Dcompress%2Cformat?ixlib=js-3.8.0&amp;auto=format&amp;quality=50&amp;dpr=2&amp;fit=max&amp;cs=origin&amp;s=90485b6e80604f2b32b3761dc6757d7d" width="15px" >
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <ul>
+          <li><i class="fas fa-desktop"></i> Support</li>
+          <li><i class="far fa-file-alt"></i> Help Center</li>
+          <li><i class="fas fa-gem"></i> Rare.xyz</li>
+        </ul>
+        <div class="social-icons">
+          <i class="fab fa-x-twitter"></i>
+          <i class="fab fa-discord"></i>
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+      <div class="footer-middle">
+        <ul>
+          <li>Terms of Service</li>
+          <li>Privacy Notice</li>
+          <li>Report Content</li>
+          <li>Cookie Preferences</li>
+        </ul>
+        <ul>
+          <li>Community Guidelines</li>
+          <li>Private Sales</li>
+          <li>$RARE Bridge</li>
+        </ul>
+      </div>
+      <div class="footer-right"><p>© 2025 SuperRare</p></div>
+    </div>
+  </footer>
+
+</body>
+</html>
