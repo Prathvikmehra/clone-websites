@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>CUTS — Replica (Hero → Footer)</title>
     <style>
-        /* ---------- RESET ---------- */
+       
         * {
             box-sizing: border-box;
             margin: 0;
@@ -38,7 +38,7 @@
             height: auto;
         }
 
-        /* ---------- TOP BANNER ---------- */
+        
         .top-banner {
             background: #000;
             color: #fff;
@@ -54,7 +54,6 @@
             font-weight: 700;
         }
 
-        /* ---------- HEADER ---------- */
         header.site-header {
             display: flex;
             align-items: center;
@@ -100,7 +99,6 @@
             place-items: center;
         }
 
-        /* ---------- HERO (split image + content) ---------- */
         .hero {
             display: flex;
             gap: 0;
@@ -168,7 +166,6 @@
             font-weight: 600;
         }
 
-        /* ---------- SHOP SECTION (generic wrapper) ---------- */
         .shop-section {
             padding: 72px 60px;
         }
@@ -198,7 +195,6 @@
             color: #fff;
         }
 
-        /* ---------- PRODUCT GRID (new releases & best sellers) ---------- */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -273,7 +269,6 @@
             font-weight: 700;
         }
 
-        /* ---------- CATEGORY GRID (large images + overlay text) ---------- */
         .category-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -313,7 +308,7 @@
             text-underline-offset: 6px;
         }
 
-        /* ---------- TRENDING (3 up) ---------- */
+ 
         .trending-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -336,7 +331,6 @@
             transform: scale(1.03);
         }
 
-        /* ---------- FEATURE GRID (3 columns) ---------- */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -367,7 +361,6 @@
             margin-bottom: 14px;
         }
 
-        /* ---------- VIDEO HERO (large) ---------- */
         .video-block {
             margin-top: 30px;
         }
@@ -379,7 +372,7 @@
             display: block;
         }
 
-        /* ---------- GUARANTEE BAR ---------- */
+    
         .guarantee-section {
             padding: 60px 40px;
             border-top: 1px solid #eee;
@@ -409,7 +402,6 @@
             color: #111;
         }
 
-        /* ---------- ABOUT US ---------- */
         .about-section {
             background: #f6f4f3;
             padding: 90px 40px;
@@ -442,7 +434,6 @@
             cursor: pointer;
         }
 
-        /* ---------- LIFESTYLE GRID (two images) ---------- */
         .lifestyle-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -457,7 +448,6 @@
             border-radius: 4px;
         }
 
-        /* ---------- FOOTER ---------- */
         footer.site-footer {
             background: #000;
             color: #fff;
@@ -568,7 +558,7 @@
             transition: all ease-in .3s;
         }
 
-        /* ---------- RESPONSIVE ---------- */
+   
         @media (max-width:1100px) {
             .trending-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -634,17 +624,17 @@
 
 <body>
 
-    <!-- TOP BANNER -->
+    
     <div class="top-banner">NEW WINTER COLORS <a href="#">[SHOP NOW]</a></div>
 
-    <!-- HEADER -->
+
     <header class="site-header" role="banner">
         <nav class="nav-left" aria-label="Main navigation">
             <a href="#">Men</a>
             <a href="#">Women</a>
             <a href="#">Bundles</a>
             <a href="#">Community</a>
-            <a href="#">Advocates</a>
+            <a href="advocates.html">Advocates</a>
         </nav>
 
         <div class="logo" aria-hidden="true">CUTS</div>
@@ -656,11 +646,10 @@
         </div>
     </header>
 
-    <!-- HERO -->
     <main>
         <section class="hero" aria-label="Hero">
             <div class="hero-left">
-                <!-- hero image (stacked art) -->
+             
                 <img alt="white textured background" decoding="async" height="900" loading="eager" sizes="100vw"
                     src="https://cdn.shopify.com/s/files/1/1368/3463/files/BFCM_HPHero_WEb_copy.jpg?v=1762196300&amp;width=1800&amp;height=900&amp;crop=center"
                     srcset="https://cdn.shopify.com/s/files/1/1368/3463/files/BFCM_HPHero_WEb_copy.jpg?v=1762196300&amp;width=1800&amp;height=900&amp;crop=center 1800w, https://cdn.shopify.com/s/files/1/1368/3463/files/BFCM_HPHero_WEb_copy.jpg?v=1762196300&amp;width=2070&amp;height=1035&amp;crop=center 2070w, https://cdn.shopify.com/s/files/1/1368/3463/files/BFCM_HPHero_WEb_copy.jpg?v=1762196300&amp;width=2340&amp;height=1170&amp;crop=center 2340w, https://cdn.shopify.com/s/files/1/1368/3463/files/BFCM_HPHero_WEb_copy.jpg?v=1762196300&amp;width=2610&amp;height=1305&amp;crop=center 2610w"
@@ -681,7 +670,7 @@
             </div> -->
         </section>
 
-        <!-- SHOP NEW RELEASES -->
+
         <section class="shop-section" aria-label="New Releases">
             <h2>Shop New Releases</h2>
             <div class="tabs">
@@ -690,7 +679,7 @@
             </div>
 
             <div class="product-grid">
-                <!-- product 1 -->
+    
                 <article class="product" aria-label="Product 1">
                     <span class="badge new">New Style</span>
                     <div class="img-wrap">
@@ -705,7 +694,7 @@
                     <div class="price">₹6,800</div>
                 </article>
 
-                <!-- product 2 -->
+            
                 <article class="product" aria-label="Product 2">
                     <span class="badge">Restocked</span>
                     <div class="img-wrap">
@@ -720,7 +709,6 @@
                     <div class="price">₹3,800</div>
                 </article>
 
-                <!-- product 3 -->
                 <article class="product" aria-label="Product 3">
                     <div class="img-wrap">
                         <img class="main-img"
@@ -734,7 +722,6 @@
                     <div class="price">₹6,700</div>
                 </article>
 
-                <!-- product 4 -->
                 <article class="product" aria-label="Product 4">
                     <div class="img-wrap">
                         <img class="main-img"
@@ -750,7 +737,6 @@
             </div>
         </section>
 
-        <!-- BEST SELLERS -->
         <section class="shop-section" aria-label="Best Sellers">
             <h2>Shop Best Sellers</h2>
             <div class="tabs">
@@ -816,7 +802,7 @@
                 </article>
             </div>
 
-            <!-- small CTA -->
+      
             <div style="margin-top:36px;">
                 <a href="#"
                     style="display:inline-block;background:#111;color:#fff;padding:12px 24px;border-radius:28px;">Shop
@@ -824,7 +810,7 @@
             </div>
         </section>
 
-        <!-- SHOP BY CATEGORY -->
+
         <section class="shop-section" aria-label="Shop by Category">
             <h2>Shop by Category</h2>
             <div class="category-grid">
@@ -851,7 +837,7 @@
             </div>
         </section>
 
-        <!-- TRENDING COLLECTIONS -->
+   
         <section class="shop-section" aria-label="Trending Collections">
             <h2>Trending Collections</h2>
             <div class="trending-grid" style="margin-top:22px;">
@@ -867,7 +853,7 @@
             </div>
         </section>
 
-        <!-- FEATURE GRID (bundle/winter/hyperloop) -->
+      
         <section class="shop-section" aria-label="Featured Collections">
             <div class="feature-grid">
                 <div class="feature-card">
@@ -899,9 +885,9 @@
             </div>
         </section>
 
-        <!-- VIDEO (static fallback if autoplay blocked) -->
+        
         <section class="video-block" aria-label="Video">
-            <!-- using a large placeholder video-ish image since cross-site video URLs may be blocked -->
+            
             <img alt="white textured background" decoding="async" height="900" loading="eager" sizes="100vw"
                 src="https://cdn.shopify.com/s/files/1/1368/3463/files/BFCM_HPHero_WEb_copy.jpg?v=1762196300&amp;width=1800&amp;height=900&amp;crop=center"
                 srcset="https://cdn.shopify.com/s/files/1/1368/3463/files/BFCM_HPHero_WEb_copy.jpg?v=1762196300&amp;width=1800&amp;height=900&amp;crop=center 1800w, https://cdn.shopify.com/s/files/1/1368/3463/files/BFCM_HPHero_WEb_copy.jpg?v=1762196300&amp;width=2070&amp;height=1035&amp;crop=center 2070w, https://cdn.shopify.com/s/files/1/1368/3463/files/BFCM_HPHero_WEb_copy.jpg?v=1762196300&amp;width=2340&amp;height=1170&amp;crop=center 2340w, https://cdn.shopify.com/s/files/1/1368/3463/files/BFCM_HPHero_WEb_copy.jpg?v=1762196300&amp;width=2610&amp;height=1305&amp;crop=center 2610w"
@@ -909,7 +895,7 @@
                 style="width: 100%; aspect-ratio: 4000 / 2000;">
         </section>
 
-        <!-- GUARANTEE BAR -->
+       
         <section class="guarantee-section" aria-label="Guarantee">
             <div class="guarantee-item">
                 <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="wash guarantee">
@@ -925,7 +911,7 @@
             </div>
         </section>
 
-        <!-- ABOUT -->
+       
         <section class="about-section" aria-label="About">
             <div class="about-inner">
                 <div class="tag">[ About Us ]</div>
@@ -937,7 +923,6 @@
             </div>
         </section>
 
-        <!-- LIFESTYLE IMAGES -->
         <section class="lifestyle-grid" aria-label="Lifestyle">
             <img alt="man with blue hat, light blue shirt and off white pants" decoding="async" height="100"
                 loading="lazy" sizes="75vw"
@@ -953,7 +938,7 @@
 
     </main>
 
-    <!-- FOOTER -->
+   
     <footer class="site-footer" role="contentinfo">
         <div class="footer-grid">
             <div class="footer-col">
