@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://res.cloudinary.com/dhbxrjpgc/image/upload/v1761558607/Screenshot_2025-10-27_151706-removebg-preview_qirwja.png" type="image/x-icon">
+    <title>Complete Your Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="nav">
+                <div class="main_nav">
+                    <a href="index.html">
+                        <img id="logo"
+                            src="https://res.cloudinary.com/dhbxrjpgc/image/upload/v1761217484/Cantabil-logo-1_jg57qn.avif"
+                            alt="">
+                    </a>
+                    <input type="text" name="search" id="search" placeholder="&nbsp&nbsp&nbsp🔎︎ &nbsp&nbsp search">
+                    <div class="r_nav">
+                        <span class="mdi--shop-location-outline"></span>
+                        <span class="line-md--account-small"></span>
+                        <span class="line-md--heart"></span>
+                        <span class="ic--twotone-shopping-bag"></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="order-container">
+            <div class="product-summary">
+                <img src="https://res.cloudinary.com/dhbxrjpgc/image/upload/v1761551946/product_jzuh3g.webp" alt="Product">
+                <div class="product-info">
+                    <h3>Formal Shirt for Men | Breathable & Soft</h3>
+                    <div class="product-details">
+                        <p class="price">₹2,239</p>
+                        <p class="size">Size: <span id="selected-size">42</span></p>
+                        <p class="quantity">Quantity: <span id="selected-quantity">1</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="shipping-form">
+                <h2>Shipping Details</h2>
+                <form id="shipping-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Address" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="City" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="State" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Pincode" required>
+                    </div>
+                    <button type="submit" class="place-order-btn">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
