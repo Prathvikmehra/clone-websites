@@ -19,7 +19,7 @@
             color: #111;
         }
 
-                .top-strip {
+        .top-strip {
             background: #1f3d2b;
             color: #fff;
             text-align: center;
@@ -27,13 +27,6 @@
             font-size: 14px;
         }
 
-                .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 40px;
-            border-bottom: 1px solid #eee;
-        }
 
         .nav-left {
             display: flex;
@@ -51,20 +44,77 @@
             gap: 20px;
             align-items: center;
         }
+        .navbar{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.nav-left{
+    display: flex;
+    gap: 26px;
+    font-weight: 600;
+}
+
+.nav-left a{
+    text-decoration: none;
+    color: #111;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+}
+
+.logo{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.nav-right{
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    font-size: 14px;
+}
+
+.sale{
+    color: #d00000;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media(max-width: 900px){
+    .nav-left{
+        display: none;
+    }
+
+    .navbar{
+        padding: 16px 20px;
+    }
+}
+
 
         .sale {
             color: red;
             font-weight: 600;
         }
 
-                .main {
+        .main {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
             gap: 24px;
             padding: 40px;
         }
 
-                .hero {
+        .hero {
             position: relative;
             border-radius: 12px;
             overflow: hidden;
@@ -101,13 +151,20 @@
             cursor: pointer;
         }
 
-                .card {
+
+        .nav-left a {
+            text-decoration: none;
+            color: #111;
+            padding: 10px;
+        }
+
+        .card {
             background: #f7f7f9;
             border-radius: 12px;
             padding: 16px;
         }
 
-                .image-box {
+        .image-box {
             position: relative;
             width: 100%;
         }
@@ -172,7 +229,7 @@
             border-radius: 4px;
         }
 
-                @media(max-width:1024px) {
+        @media(max-width:1024px) {
             .main {
                 grid-template-columns: 1fr 1fr;
             }
@@ -184,127 +241,125 @@
             }
         }
 
-        
-    footer {
-      background: #000;
-      color: #fff;
-      padding: 80px 60px;
-    }
 
-    .footer-columns {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 40px;
-      border-bottom: 1px solid #222;
-      padding-bottom: 50px;
-    }
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 80px 60px;
+        }
 
-    .footer-column h4 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #bbb;
-      letter-spacing: 1px;
-    }
+        .footer-columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 50px;
+        }
 
-    .footer-column ul {
-      list-style: none;
-    }
+        .footer-column h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #bbb;
+            letter-spacing: 1px;
+        }
 
-    .footer-column ul li {
-      margin-bottom: 0.6rem;
-    }
+        .footer-column ul {
+            list-style: none;
+        }
 
-    .footer-column ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: 0.3s;
-    }
+        .footer-column ul li {
+            margin-bottom: 0.6rem;
+        }
 
-    .footer-column ul li a:hover {
-      color: #ccc;
-    }
+        .footer-column ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
 
-    .stay-connected {
-      max-width: 400px;
-    }
+        .footer-column ul li a:hover {
+            color: #ccc;
+        }
 
-    .stay-connected p {
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-bottom: 1.2rem;
-    }
+        .stay-connected {
+            max-width: 400px;
+        }
 
-    .radio-group {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 1rem;
-    }
+        .stay-connected p {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 1.2rem;
+        }
 
-    .email-subscribe {
-      display: flex;
-      background: #1a1a1a;
-      border-radius: 30px;
-      overflow: hidden;
-    }
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
 
-    .email-subscribe input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      color: #fff;
-      padding: 12px 20px;
-      outline: none;
-    }
+        .email-subscribe {
+            display: flex;
+            background: #1a1a1a;
+            border-radius: 30px;
+            overflow: hidden;
+        }
 
-    .email-subscribe button {
-      background: none;
-      border: none;
-      color: #fff;
-      padding: 12px 20px;
-      cursor: pointer;
-      font-size: 1.2rem;
-    }
+        .email-subscribe input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #fff;
+            padding: 12px 20px;
+            outline: none;
+        }
 
-    .footer-bottom {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #bbb;
-      /* margin-top: 40px; */
-    }
+        .email-subscribe button {
+            background: none;
+            border: none;
+            color: #fff;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
 
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-      align-items: center;
-    }
-  
-    .socials img {
-      width: 25px;
-      filter: invert(1);
-      opacity: 0.8;
-      transition: 0.3s;
-    }
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #bbb;
+                    }
 
-    .socials img:hover {
-      opacity: 1;
-    }
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            align-items: center;
+        }
 
-    @media (max-width: 768px) {
-      .steps {
-        flex-direction: column;
-        align-items: center;
-      }
+        .socials img {
+            width: 25px;
+            filter: invert(1);
+            opacity: 0.8;
+            transition: 0.3s;
+        }
 
-      .footer-columns {
-        flex-direction: column;
-      }
-    }
-        
+        .socials img:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-columns {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 
@@ -316,10 +371,12 @@
 
     <div class="navbar">
         <div class="nav-left">
-            <div>Men</div>
-            <div>Women</div>
-            <div>Bundles</div>
-            <div>Gift Guides</div>
+            <a href="man.html">Men</a>
+            <a href="#">Women</a>
+            <a href="#">Bundles</a>
+            <a href="#">Community</a>
+            <a href="advocates.html">Advocates</a>
+
         </div>
         <div class="logo">CUTS</div>
         <div class="nav-right">
@@ -330,7 +387,7 @@
 
     <div class="main">
 
-                <div class="hero">
+        <div class="hero">
             <img
                 src="https://cdn.shopify.com/s/files/1/1368/3463/files/HOLIDAYSALE_MensShopAll_ShopTees_4x3_25600758-65f8-416f-8c26-9b7b0501d1f9.jpg?v=1764723991&width=1400&height=1037&crop=center">
             <div class="hero-text">
@@ -340,7 +397,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Best Seller</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" class="image-main">
@@ -354,7 +411,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Best Seller</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf" class="image-main">
@@ -370,9 +427,9 @@
         </div>
 
     </div>
-        <div class="main">
+    <div class="main">
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Bundle</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" class="image-main">
@@ -386,7 +443,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">New Color</span>
             <div class="image-box">
                 <img src="https://cdn.shopify.com/s/files/1/1368/3463/files/BLACKAOTeeCurveHem_0951.jpg?v=1759875838&width=1200&height=1600&crop=center"
@@ -401,7 +458,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Bundle</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246" class="image-main">
@@ -418,7 +475,7 @@
     </div>
     <div class="main">
 
-                <div class="hero">
+        <div class="hero">
             <img
                 src="https://cdn.shopify.com/s/files/1/1368/3463/files/HOLIDAYSALE_MensShopAll_ShopTees_4x3_25600758-65f8-416f-8c26-9b7b0501d1f9.jpg?v=1764723991&width=1400&height=1037&crop=center">
             <div class="hero-text">
@@ -428,7 +485,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Best Seller</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" class="image-main">
@@ -442,7 +499,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Best Seller</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf" class="image-main">
@@ -458,9 +515,9 @@
         </div>
 
     </div>
-        <div class="main">
+    <div class="main">
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Bundle</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" class="image-main">
@@ -474,7 +531,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">New Color</span>
             <div class="image-box">
                 <img src="https://cdn.shopify.com/s/files/1/1368/3463/files/BLACKAOTeeCurveHem_0951.jpg?v=1759875838&width=1200&height=1600&crop=center"
@@ -489,7 +546,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Bundle</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246" class="image-main">
@@ -506,7 +563,7 @@
     </div>
     <div class="main">
 
-                <div class="hero">
+        <div class="hero">
             <img
                 src="https://cdn.shopify.com/s/files/1/1368/3463/files/HOLIDAYSALE_MensShopAll_ShopTees_4x3_25600758-65f8-416f-8c26-9b7b0501d1f9.jpg?v=1764723991&width=1400&height=1037&crop=center">
             <div class="hero-text">
@@ -516,7 +573,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Best Seller</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" class="image-main">
@@ -530,7 +587,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Best Seller</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf" class="image-main">
@@ -546,9 +603,9 @@
         </div>
 
     </div>
-        <div class="main">
+    <div class="main">
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Bundle</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" class="image-main">
@@ -562,7 +619,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">New Color</span>
             <div class="image-box">
                 <img src="https://cdn.shopify.com/s/files/1/1368/3463/files/BLACKAOTeeCurveHem_0951.jpg?v=1759875838&width=1200&height=1600&crop=center"
@@ -577,7 +634,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Bundle</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246" class="image-main">
@@ -594,7 +651,7 @@
     </div>
     <div class="main">
 
-                <div class="hero">
+        <div class="hero">
             <img
                 src="https://cdn.shopify.com/s/files/1/1368/3463/files/HOLIDAYSALE_MensShopAll_ShopTees_4x3_25600758-65f8-416f-8c26-9b7b0501d1f9.jpg?v=1764723991&width=1400&height=1037&crop=center">
             <div class="hero-text">
@@ -604,7 +661,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Best Seller</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" class="image-main">
@@ -618,7 +675,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Best Seller</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf" class="image-main">
@@ -634,9 +691,9 @@
         </div>
 
     </div>
-        <div class="main">
+    <div class="main">
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Bundle</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" class="image-main">
@@ -650,7 +707,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">New Color</span>
             <div class="image-box">
                 <img src="https://cdn.shopify.com/s/files/1/1368/3463/files/BLACKAOTeeCurveHem_0951.jpg?v=1759875838&width=1200&height=1600&crop=center"
@@ -665,7 +722,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Bundle</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246" class="image-main">
@@ -682,7 +739,7 @@
     </div>
     <div class="main">
 
-                <div class="hero">
+        <div class="hero">
             <img
                 src="https://cdn.shopify.com/s/files/1/1368/3463/files/HOLIDAYSALE_MensShopAll_ShopTees_4x3_25600758-65f8-416f-8c26-9b7b0501d1f9.jpg?v=1764723991&width=1400&height=1037&crop=center">
             <div class="hero-text">
@@ -692,7 +749,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Best Seller</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" class="image-main">
@@ -706,7 +763,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Best Seller</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf" class="image-main">
@@ -722,9 +779,9 @@
         </div>
 
     </div>
-        <div class="main">
+    <div class="main">
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Bundle</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" class="image-main">
@@ -738,7 +795,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">New Color</span>
             <div class="image-box">
                 <img src="https://cdn.shopify.com/s/files/1/1368/3463/files/BLACKAOTeeCurveHem_0951.jpg?v=1759875838&width=1200&height=1600&crop=center"
@@ -753,7 +810,7 @@
             </div>
         </div>
 
-                <div class="card">
+        <div class="card">
             <span class="badge">Bundle</span>
             <div class="image-box">
                 <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246" class="image-main">
