@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Hunt Clone</title>
     <style>
-        /* General Styles */
-        body {
+                body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: #f5f5f5;
@@ -18,8 +17,7 @@
             color: inherit;
         }
 
-        /* Navbar */
-        .navbar {
+                .navbar {
             position: sticky;
             top: 0;
             display: flex;
@@ -40,9 +38,7 @@
         .logo {
             font-weight: bold;
             font-size: 1.5em;
-            /* border-radius: 10px;
-            border: #333; */
-        }
+                    }
 
         .search-box {
             padding: 5px 10px;
@@ -75,8 +71,7 @@
             color: #ff6600;
         }
 
-        /* Main Section */
-        .container {
+                .container {
             display: flex;
             width: 90%;
             max-width: 1200px;
@@ -106,8 +101,7 @@
             margin-bottom: 15px;
         }
 
-        /* Product Cards */
-        .product-card {
+                .product-card {
             background: #fff;
             display: flex;
             justify-content: space-between;
@@ -152,8 +146,7 @@
             text-align: right;
         }
 
-        /* Footer */
-        .footer {
+                .footer {
             background-color: rgb(16 24 40 / var(--tw-bg-opacity, 1));
             padding: 50px 20px;
             margin-top: 50px;
@@ -215,10 +208,10 @@
         </div>
         <nav class="nav-links">
             <a href="index.html">Launches</a>
-            <a href="products.html">Products</a>
+            <a href="about.html">Products</a>
             <a href="#">News</a>
             <a href="#">Forums</a>
-            <a href="#advertise.html">Advertise</a>
+            <a href="advertise.html">Advertise</a>
         </nav>
         <div class="nav-right">
             <button class="subscribe">Subscribe</button>
@@ -226,6 +219,149 @@
         </div>
     </header>
 
+    <main class="container">
+        <section class="left-section">
+            <h2>Top Products Launching Today</h2>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>1. v0 for iOS</h3>
+                    <p>Build anything with AI</p>
+                    <span class="tags">iOS • Developer Tools • Vibe coding</span>
+                </div>
+                <div class="votes">
+                    <p>9 💬</p>
+                    <p>248 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card highlight">
+                <div class="product-info">
+                    <h3>2. AI CMO by Lindy</h3>
+                    <p>Launch 1000s of marketing experiments in minutes</p>
+                    <span class="tags">Productivity • Marketing • Artificial Intelligence</span>
+                </div>
+                <div class="votes">
+                    <p>14 💬</p>
+                    <p>194 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>3. Alai</h3>
+                    <p>Create high quality presentations using AI</p>
+                    <span class="tags">Design Tools • Productivity • Artificial Intelligence</span>
+                </div>
+                <div class="votes">
+                    <p>30 💬</p>
+                    <p>187 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>4. Starbase</h3>
+                    <p>Browser-based MCP server testing with AI chat integration</p>
+                    <span class="tags">Developer Tools • Artificial Intelligence • GitHub</span>
+                </div>
+                <div class="votes">
+                    <p>5 💬</p>
+                    <p>161 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>5. ChatFlow</h3>
+                    <p>Automate customer support with AI chatbots</p>
+                    <span class="tags">Customer Support • AI • Automation</span>
+                </div>
+                <div class="votes">
+                    <p>11 💬</p>
+                    <p>150 ⬆️</p>
+                </div>
+            </div>
+            <div class="image">
+                <img loading="eager" fetchpriority="high"
+                    srcset="https://ph-files.imgix.net/c7656d0d-c5a7-42dd-a70d-05050d73f65d.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1&amp;dpr=1 1x, https://ph-files.imgix.net/c7656d0d-c5a7-42dd-a70d-05050d73f65d.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1&amp;dpr=2 2x, https://ph-files.imgix.net/c7656d0d-c5a7-42dd-a70d-05050d73f65d.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1&amp;dpr=3 3x"
+                    src="https://ph-files.imgix.net/c7656d0d-c5a7-42dd-a70d-05050d73f65d.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1"
+                    style="aspect-ratio:5 / 1;width:100%;height:auto" alt="Rippling" class="size-full object-contain">
+            </div>
+            <div class="product-card highlight">
+                <div class="product-info">
+                    <h3>6. TrendAnalyzer</h3>
+                    <p>Spot trends before they go viral</p>
+                    <span class="tags">Marketing • Analytics • AI</span>
+                </div>
+                <div class="votes">
+                    <p>33 💬</p>
+                    <p>400 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>7. DesignBot</h3>
+                    <p>Create stunning visuals in seconds</p>
+                    <span class="tags">Design • Creativity • AI Tools</span>
+                </div>
+                <div class="votes">
+                    <p>20 💬</p>
+                    <p>275 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card highlight">
+                <div class="product-info">
+                    <h3>8. CodeWhiz</h3>
+                    <p>Auto-generate clean code for your projects</p>
+                    <span class="tags">Development • Productivity • AI</span>
+                </div>
+                <div class="votes">
+                    <p>19 💬</p>
+                    <p>250 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>9. NoteMate</h3>
+                    <p>Smart AI notetaker for students and professionals</p>
+                    <span class="tags">Productivity • AI • Notes</span>
+                </div>
+                <div class="votes">
+                    <p>7 💬</p>
+                    <p>112 ⬆️</p>
+                </div>
+            </div>
+
+            <div class="product-card highlight">
+                <div class="product-info">
+                    <h3>10. MarketGenie</h3>
+                    <p>Generate marketing content in seconds using AI</p>
+                    <span class="tags">Marketing • AI • Content Creation</span>
+                </div>
+                <div class="votes">
+                    <p>25 💬</p>
+                    <p>330 ⬆️</p>
+                </div>
+            </div>
+
+        </section>
+
+        <aside class="right-section">
+            <h3>Trending Forum Threads</h3>
+            <ul>
+                <li><b>Would you pay more for a product with great support?</b><br><small>Upvote (6) • 1</small></li>
+                <li><b>Tiny A/B Test is available now, for free</b><br><small>Upvote (35) • 3</small></li>
+                <li><b>How do you treat your competition? Is your stance more adversarial or
+                        friendly?</b><br><small>Upvote (15) • 8</small></li>
+                <li><b>How much money would you be willing to spend from your own savings to start a
+                        business?</b><br><small>Upvote (79) • 65</small></li>
+            </ul>
+        </aside>
+    </main>
     <main class="container">
         <section class="left-section">
             <h2>Top Products Launching Today</h2>

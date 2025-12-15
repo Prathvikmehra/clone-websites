@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stanley Hero Replica</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            color: #111;
+        }
+
+
+        .top-bar {
+            background: #000;
+            color: #fff;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            position: relative;
+        }
+
+        .top-bar span {
+            opacity: 0.9;
+        }
+
+        .top-bar .arrow {
+            position: absolute;
+            right: 20px;
+            font-size: 18px;
+        }
+
+
+        .header {
+            background: #fff;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            padding: 18px 40px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .nav {
+            display: flex;
+            gap: 28px;
+            justify-content: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #111;
+            font-size: 14px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .search {
+            position: relative;
+        }
+
+        .search input {
+            padding: 10px 40px 10px 14px;
+            border-radius: 24px;
+            border: 1px solid #ccc;
+            width: 240px;
+            font-size: 13px;
+        }
+
+        .search::after {
+            content: "🔍";
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+        }
+
+        .cart {
+            font-size: 20px;
+        }
+
+
+        .hero {
+            position: relative;
+            height: 80vh;
+            background: #0b2d55;
+
+            overflow: hidden;
+        }
+
+
+        .hero-img {
+            position: absolute;
+            inset: 0;
+            background: #1c3f6e;
+
+        }
+
+
+        .hero-text {
+            position: absolute;
+            bottom: 70px;
+            left: 60px;
+            color: #fff;
+            max-width: 520px;
+        }
+
+        .hero-text h1 {
+            font-size: 54px;
+            margin-bottom: 12px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+
+        @media (max-width: 1024px) {
+            .nav {
+                gap: 18px;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .search input {
+                width: 180px;
+            }
+
+            .hero-text {
+                left: 24px;
+                bottom: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 70vh;
+            }
+
+            .hero-text h1 {
+                font-size: 30px;
+            }
+        }
+
+        .collection-section {
+            padding: 80px 60px;
+            background: #fff;
+        }
+
+
+        .collection-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .collection-header h2 {
+            font-size: 36px;
+        }
+
+        .collection-arrows span {
+            font-size: 26px;
+            margin-left: 14px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+        }
+
+
+        .product-image {
+            height: 360px;
+            background: #f6f6f6;
+            border-radius: 16px;
+            margin-bottom: 18px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.03);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        }
+
+
+        .color-swatches {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .swatch {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            background: linear-gradient(135deg, #444, #999);
+            border: 1px solid #ccc;
+        }
+
+
+        .variant {
+            font-size: 13px;
+            color: #444;
+            margin-bottom: 4px;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 11px;
+            background: #eee;
+            padding: 4px 8px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .product-card h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+
+        @media (max-width: 1000px) {
+            .collection-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .collection-section {
+                padding: 60px 24px;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .collection-header h2 {
+                font-size: 28px;
+            }
+        }
+
+        .club-deal {
+            background: linear-gradient(135deg, #0b003f, #14005c);
+            padding: 120px 80px;
+            color: #f3cfd8;
+        }
+
+        .club-content {
+            max-width: 900px;
+        }
+
+        .deal-tag {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .deal-main {
+            font-size: 96px;
+            line-height: 1;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .deal-sub {
+            font-size: 34px;
+            margin-bottom: 60px;
+        }
+
+        .deal-note p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .small-text {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        .link {
+            text-decoration: underline;
+        }
+
+        .deal-btn {
+            margin-top: 40px;
+            padding: 14px 28px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        
+        @media (max-width: 1024px) {
+            .deal-main {
+                font-size: 72px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .club-deal {
+                padding: 80px 32px;
+            }
+
+            .deal-main {
+                font-size: 54px;
+            }
+
+            .deal-sub {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .deal-main {
+                font-size: 42px;
+            }
+
+            .deal-sub {
+                font-size: 22px;
+            }
+        }
+
+        .gift-section {
+            width: 100%;
+        }
+
+        
+        .countdown-bar {
+            background: #053d2a;
+            color: #fff;
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .countdown-text h4 {
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+
+        .countdown-text p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        
+        .countdown-timer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .time-box {
+            background: #cfd6cf;
+            color: #000;
+            padding: 10px 14px;
+            text-align: center;
+            border-radius: 4px;
+            min-width: 64px;
+        }
+
+        .number {
+            display: block;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .label {
+            font-size: 11px;
+        }
+
+        .colon {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        
+        .gift-hero {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+        }
+
+        
+        .gift-image {
+            position: absolute;
+            inset: 0;
+            background: #d6b08c;
+            
+        }
+
+        
+        .gift-content {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            color: #fff;
+            max-width: 600px;
+        }
+
+        .gift-content h1 {
+            font-size: 72px;
+            margin-bottom: 12px;
+        }
+
+        .gift-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .gift-content button {
+            padding: 14px 32px;
+            border: none;
+            background: #fff;
+            color: #000;
+            font-size: 14px;
+            border-radius: 6px;
+        }
+
+        
+        @media (max-width: 1024px) {
+            .gift-content h1 {
+                font-size: 54px;
+            }
+
+            .countdown-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gift-content {
+                left: 24px;
+                bottom: 40px;
+            }
+
+            .gift-content h1 {
+                font-size: 42px;
+            }
+
+            .countdown-bar {
+                padding: 20px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gift-content h1 {
+                font-size: 34px;
+            }
+
+            .countdown-timer {
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+        }
+
+
+        
+        .gift-icons-section {
+            padding: 60px 40px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .icons-row {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 18px;
+        }
+
+        .icon-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .icon-card p {
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        
+        .icon-dots {
+            margin-top: 18px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 4px;
+        }
+
+        .dot.active {
+            background: #000;
+        }
+
+        
+        .lifestyle-image-section {
+            width: 100%;
+            height: 75vh;
+            overflow: hidden;
+        }
+
+        .lifestyle-image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        
+        @media (max-width: 1024px) {
+            .icons-row {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .icons-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .messi-stanley-section {
+            position: relative;
+            width: 100%;
+            height: 85vh;
+            overflow: hidden;
+        }
+
+        
+        .messi-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        
+        .messi-content {
+            position: absolute;
+            inset: 0;
+            padding: 80px 60px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 700px;
+        }
+
+        
+        .logos {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .divider {
+            opacity: 0.6;
+        }
+
+        
+        .messi-content h1 {
+            font-size: 64px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        
+        .messi-content p {
+            font-size: 18px;
+            margin-bottom: 28px;
+            max-width: 520px;
+        }
+
+        
+        .messi-content button {
+            width: fit-content;
+            padding: 14px 32px;
+            background: #fff;
+            color: #000;
+            border: none;
+            font-size: 14px;
+            border-radius: 6px;
+        }
+
+        
+        @media (max-width: 1024px) {
+            .messi-content h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .messi-content {
+                padding: 60px 32px;
+            }
+
+            .messi-content h1 {
+                font-size: 40px;
+            }
+
+            .messi-content p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .messi-content h1 {
+                font-size: 32px;
+            }
+        }
+
+        .favorites-section {
+            padding: 80px 60px;
+            background: #fff;
+        }
+
+        
+        .favorites-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .favorites-header h2 {
+            font-size: 36px;
+        }
+
+        .favorites-controls {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .shop-all {
+            padding: 8px 16px;
+            background: #fff;
+            border: 1px solid #000;
+            font-size: 14px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #ccc;
+            border-radius: 50%;
+        }
+
+        .dot.active {
+            background: #000;
+        }
+
+        .arrow {
+            font-size: 22px;
+        }
+
+        
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 36px;
+        }
+
+        
+        .favorite-card {
+            font-size: 14px;
+        }
+
+        
+        .fav-image {
+            height: 300px;
+            background: #f6f6f6;
+            border-radius: 16px;
+            margin-bottom: 16px;
+        }
+
+        
+        .swatches {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .swatch {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            background: #ccc;
+            border: 1px solid #aaa;
+        }
+
+        
+        .variant {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        .badges {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .badge {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 12px;
+        }
+
+        .badge.new {
+            background: #e6f0ea;
+        }
+
+        .badge.custom {
+            background: #efe6f7;
+        }
+
+        .badge.sale {
+            background: #c92a2a;
+            color: #fff;
+        }
+
+        .badge.exclusive {
+            background: #2f7d32;
+            color: #fff;
+        }
+
+        .favorite-card h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .price {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .sale-price {
+            color: #c92a2a;
+            margin-right: 8px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #777;
+        }
+
+
+        .rating {
+            font-size: 14px;
+            color: #000;
+        }
+
+        .rating span {
+            font-size: 13px;
+            color: #555;
+            margin-left: 6px;
+        }
+
+
+        @media (max-width: 1024px) {
+            .favorites-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .favorites-section {
+                padding: 60px 24px;
+            }
+
+            .favorites-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .favorites-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stanley-footer {
+            background: #000;
+            color: #fff;
+            padding: 70px 60px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            margin-bottom: 60px;
+        }
+
+        .newsletter h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        
+        .email-row {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #666;
+            padding-bottom: 10px;
+            max-width: 520px;
+        }
+
+        .email-row input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            flex: 1;
+            font-size: 14px;
+        }
+
+        .email-row input::placeholder {
+            color: #aaa;
+        }
+
+        .arrow {
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        
+        .sms-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .sms-small {
+            font-size: 12px;
+            line-height: 1.6;
+            opacity: 0.7;
+        }
+
+        .sms-small span {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        
+        .shop-link {
+            text-align: right;
+            margin-bottom: 60px;
+        }
+
+        .shop-link a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .shop-link span {
+            margin-left: 8px;
+        }
+
+        
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 120px;
+        }
+
+        .col h4 {
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .col a {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 12px;
+            opacity: 0.85;
+            cursor: pointer;
+        }
+
+        .col a:hover {
+            opacity: 1;
+        }
+
+        
+        @media (max-width: 900px) {
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .shop-link {
+                text-align: left;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .stanley-footer {
+                padding: 50px 24px;
+            }
+
+            .newsletter h2 {
+                font-size: 24px;
+            }
+        }
+
+        .stanley-footer {
+  background: #000;
+  color: #fff;
+  padding: 70px 60px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  margin-bottom: 60px;
+}
+
+.newsletter h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.newsletter p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+
+.email-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #666;
+  padding-bottom: 10px;
+  max-width: 520px;
+}
+
+.email-row input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  flex: 1;
+  font-size: 14px;
+}
+
+.email-row input::placeholder {
+  color: #aaa;
+}
+
+.arrow {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+
+.sms-title {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.sms-small {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+.sms-small span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.shop-link {
+  text-align: right;
+  margin-bottom: 60px;
+}
+
+.shop-link a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.shop-link span {
+  margin-left: 8px;
+}
+
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 120px;
+}
+
+.col h4 {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.col a {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 12px;
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+.col a:hover {
+  opacity: 1;
+}
+
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .shop-link {
+    text-align: left;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .stanley-footer {
+    padding: 50px 24px;
+  }
+
+  .newsletter h2 {
+    font-size: 24px;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+
+
+    <div class="top-bar">
+        <span>Messi x Stanley 1913</span>
+        <span class="arrow">›</span>
+    </div>
+
+
+    <header class="header">
+        <div class="logo">STANLEY</div>
+
+        <nav class="nav">
+            <a href="#">Shop</a>
+            <a href="#">Trending</a>
+            <a href="#">Customize</a>
+            <a href="#">Sale</a>
+            <a href="#">Holiday Gift Guide</a>
+        </nav>
+
+        <div class="header-right">
+            <div class="search">
+                <input type="text" placeholder="What are you looking for?">
+            </div>
+            <div class="cart">🛒</div>
+        </div>
+    </header>
+
+
+    <section class="hero">
+        <div class="hero-img">
+            <img src="https://www.stanley1913.com/cdn/shop/files/120925_HP_Hero1-ALT_DT.jpg?format=pjpg&v=1765489081&width=2240,%20//www.stanley1913.com/cdn/shop/files/120925_HP_Hero1-ALT_DT.jpg?format=pjpg&v=1765489081&width=4480%202x"
+                alt="" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+
+
+        <div class="hero-text">
+            <h1>Starlight, starbright</h1>
+            <p>The Dream Weaver Collection has arrived.</p>
+        </div>
+    </section>
+
+
+    <section class="collection-section">
+
+
+        <div class="collection-header">
+            <h2>Meet the collection</h2>
+            <div class="collection-arrows">
+                <span>‹</span>
+                <span>›</span>
+            </div>
+        </div>
+
+
+        <div class="collection-grid">
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-2025-09-29_CaptureThe_Quencher_H2.0_FlowState_Tumbler_40OZ_-_Fairy_Dust_-_Front.png?v=1765212665"
+                        alt="" style="width:100%;height:100%;object-fit:contain;">
+                </div>
+
+
+                <div class="color-swatches">
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                </div>
+
+                <p class="variant">40oz | Fairy Dust</p>
+                <span class="badge">★ Limited Edition</span>
+
+                <h3>The Dream Weaver Quencher H2.0 Flowstate™ Tumbler</h3>
+                <p class="price">$50.00</p>
+            </div>
+
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151"
+                        alt="" style="width:100%;height:100%;object-fit:contain;">
+                </div>
+
+
+                <div class="color-swatches">
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                </div>
+
+                <p class="variant">30oz | Star Shine</p>
+                <span class="badge">★ Limited Edition</span>
+
+                <h3>The Dream Weaver Quencher H2.0 Flowstate™ Tumbler</h3>
+                <p class="price">$45.00</p>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151"
+                        alt="" style="width:100%;height:100%;object-fit:contain;">
+                </div>
+
+                <div class="color-swatches">
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                </div>
+
+                <p class="variant">24oz | Fairy Dust</p>
+                <span class="badge">★ Limited Edition</span>
+
+                <h3>The Dream Weaver Stay-Hot Camp Mug</h3>
+                <p class="price">$35.00</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="club-deal">
+        <div class="club-content">
+            <p class="deal-tag">Final Club Deal *</p>
+
+            <h1 class="deal-main">
+                Up to 35% off
+            </h1>
+
+            <p class="deal-sub">
+                limited-edition gifts
+            </p>
+
+            <div class="deal-note">
+                <p>This one's for you, members.</p>
+                <p class="small-text">
+                    Exclusions apply. Ends 12/15 at 9AM PT/12PM ET.
+                    Not a Stanley Club member?
+                    <span class="link">Join now.</span>
+                </p>
+            </div>
+
+            <button class="deal-btn">Sign In To Shop</button>
+        </div>
+    </section><br><br><br><br>
+
+    <section class="gift-section">
+
+        
+        <div class="countdown-bar">
+            <div class="countdown-text">
+                <h4>There's still time</h4>
+                <p>
+                    Order gifts by 11:59PM PST on 12/16 in time for<br>
+                    holiday delivery.
+                </p>
+            </div>
+
+            <div class="countdown-timer">
+                <div class="time-box">
+                    <span class="number">2</span>
+                    <span class="label">Days</span>
+                </div>
+                <span class="colon">:</span>
+                <div class="time-box">
+                    <span class="number">22</span>
+                    <span class="label">Hours</span>
+                </div>
+                <span class="colon">:</span>
+                <div class="time-box">
+                    <span class="number">50</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <span class="colon">:</span>
+                <div class="time-box">
+                    <span class="number">58</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="gift-hero">
+
+            <div class="gift-image">
+                <img src="https://www.stanley1913.com/cdn/shop/files/120925_HP_Hero2_DT.jpg?format=pjpg&v=1765247780&width=1600,%20//www.stanley1913.com/cdn/shop/files/120925_HP_Hero2_DT.jpg?format=pjpg&v=1765247780&width=3200%202x"
+                    alt="" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+
+            
+            <div class="gift-content">
+                <h1>Gifting wrapped</h1>
+                <p>Keep the cheer flowing with our Holiday Collection.</p>
+                <button>Shop Now</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="gift-icons-section">
+
+        
+        <div class="icons-row">
+
+            <div class="icon-card">
+                <img src="https://www.stanley1913.com/cdn/shop/files/NAM_HOL25_Gift-Guides_Vis-Nav_Her_DT.jpg?v=1762210192&width=990"
+                    alt="">
+                <p>Gifts for her</p>
+            </div>
+
+            <div class="icon-card">
+                <img src="https://www.stanley1913.com/cdn/shop/files/NAM_HOL25_Gift-Guides_Vis-Nav_Wellness_DT.jpg?v=1762210192&width=990"
+                    alt="">
+                <p>Gifts for him</p>
+            </div>
+
+            <div class="icon-card">
+                <img src="https://www.stanley1913.com/cdn/shop/files/NAM_HOL25_Gift-Guides_Vis-Nav_Trending_DT.jpg?v=1762210192&width=990"
+                    alt="">
+                <p>Gifts for wellness</p>
+            </div>
+
+            <div class="icon-card">
+                <img src="https://www.stanley1913.com/cdn/shop/files/NAM_HOL25_Gift-Guides_Vis-Nav_Him_DT.jpg?v=1762210192&width=990"
+                    alt="">
+                <p>Stocking stuffers</p>
+            </div>
+
+            <div class="icon-card">
+                <img src="https://www.stanley1913.com/cdn/shop/files/NAM_HOL25_Gift-Guides_Vis-Nav_Her_DT.jpg?v=1762210192&width=990"
+                    alt="">
+                <p>Trending gifts</p>
+            </div>
+
+            <div class="icon-card">
+                <img src="https://www.stanley1913.com/cdn/shop/files/NAM_HOL25_Gift-Guides_Vis-Nav_Wellness_DT.jpg?v=1762210192&width=990"
+                    alt="">
+                <p>Gifts under $50</p>
+            </div>
+
+            <div class="icon-card">
+                <img src="https://www.stanley1913.com/cdn/shop/files/NAM_HOL25_Gift-Guides_Vis-Nav_Trending_DT.jpg?v=1762210192&width=990"
+                    alt="">
+                <p>Limited edition</p>
+            </div>
+
+        </div>
+
+        
+        <div class="icon-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        </div>
+
+    </section>
+
+    <section class="messi-stanley-section">
+
+        
+        <img src="https://images.unsplash.com/photo-1600679472829-3044539ce8ed" alt="Lifestyle athlete image"
+            class="messi-bg">
+
+        
+        <div class="messi-content">
+
+            <div class="logos">
+
+                <img src="https://www.stanley1913.com/cdn/shop/files/messi-stanley-logo-lockup.png?v=1764906830&width=2048"
+                    alt="">
+
+
+            </div>
+
+            <h1>
+                Work hard.<br>
+                Create magic.
+            </h1>
+
+            <p>
+                The new Messi x Stanley 1913 Collection is available now.
+            </p>
+
+            <button>Shop Now</button>
+
+        </div>
+
+    </section>
+
+    <section class="favorites-section">
+
+        
+        <div class="favorites-header">
+            <h2>Stanley Favorites</h2>
+
+            <div class="favorites-controls">
+                <button class="shop-all">Shop All</button>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="arrow">‹</span>
+                <span class="arrow">›</span>
+            </div>
+        </div>
+
+        
+        <div class="favorites-grid">
+
+            
+            <div class="favorite-card">
+                <div class="fav-image">
+                    <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151"
+                        alt="" style="width:100%;height:100%;object-fit:contain;">
+                </div>
+
+
+                <div class="swatches">
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                </div>
+
+                <p class="variant">30oz | Cashmere</p>
+
+                <div class="badges">
+                    <span class="badge new">New Arrival</span>
+                    <span class="badge custom">Customizable</span>
+                </div>
+
+                <h3>The IceFlow™ Flip Straw Tumbler</h3>
+                <p class="price">$35.00</p>
+
+                <div class="rating">
+                    ★★★★☆ <span>4.3 (8506)</span>
+                </div>
+            </div>
+
+
+            <div class="favorite-card">
+                <div class="fav-image">
+                    <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-2025-09-29_CaptureThe_Quencher_H2.0_FlowState_Tumbler_40OZ_-_Fairy_Dust_-_Front.png?v=1765212665"
+                        alt="" style="width:100%;height:100%;object-fit:contain;">
+                </div>
+
+
+                <div class="swatches">
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                </div>
+
+                <p class="variant">24 oz | Dried Pine</p>
+
+                <h3>The Everyday Suburban Mug</h3>
+                <p class="price">$35.00</p>
+
+                <div class="rating">
+                    ★★★★☆ <span>4.0 (17)</span>
+                </div>
+            </div>
+
+
+            <div class="favorite-card">
+                <div class="fav-image">
+                    <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151"
+                        alt="" style="width:100%;height:100%;object-fit:contain;">
+                </div>
+
+
+                <div class="swatches">
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                </div>
+
+                <p class="variant">16oz Smooth | Holly Berry Gloss</p>
+
+                <div class="badges">
+                    <span class="badge sale">Sale</span>
+                    <span class="badge exclusive">Stanley Club Exclusive</span>
+                </div>
+
+                <h3>The Cheers & Cheer Everyday Tumbler</h3>
+
+                <p class="price">
+                    <span class="sale-price">$26.25</span>
+                    <span class="old-price">$35.00</span>
+                </p>
+
+                <div class="rating">
+                    ★★★★★ <span>4.8 (11)</span>
+                </div>
+            </div>
+
+            <div class="favorite-card">
+                <div class="fav-image">
+                    <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-2025-09-29_CaptureThe_Quencher_H2.0_FlowState_Tumbler_40OZ_-_Fairy_Dust_-_Front.png?v=1765212665"
+                        alt="" style="width:100%;height:100%;object-fit:contain;">
+                </div>
+
+
+                <div class="swatches">
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                    <span class="swatch"></span>
+                </div>
+
+                <p class="variant">20oz | Chalk</p>
+
+                <div class="badges">
+                    <span class="badge new">New Arrival</span>
+                </div>
+
+                <h3>The Activate Shaker Bottle</h3>
+                <p class="price">$40.00</p>
+
+                <div class="rating">
+                    ★★★★☆ <span>4.3 (228)</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+<footer class="stanley-footer">
+
+  
+  <div class="footer-top">
+    <div class="newsletter">
+      <h2>Be the first to know</h2>
+      <p>Hear about new arrivals, sales, and other news.</p>
+
+      <div class="email-row">
+        <input type="email" placeholder="Your Email Address">
+        <span class="arrow">→</span>
+      </div>
+    </div>
+
+    <div class="sms">
+      <p class="sms-title">
+        To receive SMS updates, text <strong>STANLEY</strong> to <strong>22936</strong>
+      </p>
+      <p class="sms-small">
+        Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available).
+        <span>Privacy Policy</span> & <span>Terms</span>.
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="shop-link">
+    <a href="#">Shop Stanley 1913 <span>→</span></a>
+  </div>
+
+  
+  <div class="footer-links">
+    <div class="col">
+      <h4>Company</h4>
+      <a>About Stanley 1913</a>
+      <a>Careers</a>
+      <a>Meet the BearForce</a>
+      <a>Employee Spotlight</a>
+      <a>Stanley 1913 Creators Fund</a>
+      <a>Sustainability</a>
+      <a>Stanley 1913 Take Back</a>
+      <a>Blogs</a>
+      <a>Refer a Friend</a>
+      <a>Affiliate Program</a>
+    </div>
+
+    <div class="col">
+      <h4>Support</h4>
+      <a>FAQ</a>
+      <a>Contact Us</a>
+      <a>Returns</a>
+      <a>Stainless-Steel Warranty Policy</a>
+      <a>Product Recalls</a>
+      <a>Soft Goods Warranty Policy</a>
+      <a>Find a Retail Store</a>
+      <a>Order Tracking</a>
+    </div>
+  </div>
+
+</footer>
+
+</body>
+
+</html>

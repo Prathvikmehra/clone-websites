@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stanley Create Collection</title>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #000;
+}
+
+
+.header {
+  padding: 16px 40px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  font-weight: 800;
+}
+
+.hero {
+  background: #d4b6bb;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 520px;
+  padding: 60px;
+}
+
+.hero-content {
+  padding-right: 40px;
+}
+
+.hero-content h1 {
+  font-size: clamp(32px, 4vw, 56px);
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.hero-content p {
+  color: #fff;
+  font-size: 18px;
+  max-width: 420px;
+}
+
+.hero-image {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.collection {
+  padding: 60px 40px;
+}
+
+.collection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.collection-header h2 {
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.collection-header span {
+  color: #555;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+}
+
+.controls button {
+  border: 1px solid #000;
+  background: #fff;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.product {
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.product img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+}
+
+.colors {
+  display: flex;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.product h4 {
+  font-size: 15px;
+  margin: 8px 0;
+}
+
+.price {
+  font-weight: 700;
+}
+
+.old {
+  text-decoration: line-through;
+  color: #777;
+  margin-left: 6px;
+}
+
+.rating {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+  }
+
+  .hero-content {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stanley-footer {
+  background: #000;
+  color: #fff;
+  padding: 70px 60px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  margin-bottom: 60px;
+}
+
+.newsletter h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.newsletter p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+.email-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #666;
+  padding-bottom: 10px;
+  max-width: 520px;
+}
+
+.email-row input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  flex: 1;
+  font-size: 14px;
+}
+
+.email-row input::placeholder {
+  color: #aaa;
+}
+
+.arrow {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.sms-title {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.sms-small {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+.sms-small span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.shop-link {
+  text-align: right;
+  margin-bottom: 60px;
+}
+
+.shop-link a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.shop-link span {
+  margin-left: 8px;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 120px;
+}
+
+.col h4 {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.col a {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 12px;
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+.col a:hover {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .shop-link {
+    text-align: left;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .stanley-footer {
+    padding: 50px 24px;
+  }
+
+  .newsletter h2 {
+    font-size: 24px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="header">
+  <h2>STANLEY</h2>
+</div>
+
+<section class="hero">
+    <div class="hero-content">
+        <p>Place orders by 12/3 for Holiday delivery.</p>
+        <h1>A personal touch.</h1>
+    </div>
+    
+    <div class="hero-image">
+        <img src="https://www.stanley1913.com/cdn/shop/files/111225_LSF-Launch_Hero3.jpg?format=pjpg&v=1762907535&width=4480" alt="Stanley Mug" />
+    </div>
+</section>
+
+<section class="collection">
+  <div class="collection-header">
+    <div>
+      <h2>Stanley Create Collection</h2>
+      <span>273 Products</span>
+    </div>
+
+    <div class="controls">
+      <button>Filter</button>
+      <button>Sort by: Relevance</button>
+    </div>
+  </div>
+
+  <div class="products">
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#c38eb4"></div>
+        <div class="color" style="background:#333"></div>
+        <div class="color" style="background:#5fa"></div>
+      </div>
+      <h4>The Quencher H2.0 Flowstate™ Tumbler</h4>
+      <div class="price">$22.50 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.1 (22982)</div>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#8aa8ff"></div>
+        <div class="color" style="background:#999"></div>
+      </div>
+      <h4>Quencher ProTour Flip Straw Tumbler</h4>
+      <div class="price">$22.50 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.2 (11305)</div>
+    </div>
+
+    <div class="product">
+      <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" />
+      <div class="colors">
+        <div class="color" style="background:#c8b19c"></div>
+        <div class="color" style="background:#aaa"></div>
+      </div>
+      <h4>IceFlow™ Flip Straw Tumbler</h4>
+      <div class="price">$35.00</div>
+      <div class="rating">★★★★☆ 4.3 (8506)</div>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#f59e7a"></div>
+        <div class="color" style="background:#0af"></div>
+      </div>
+      <h4>The Quencher H2.0 Flowstate™ Tumbler</h4>
+      <div class="price">$27.00 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.1 (22982)</div>
+    </div>
+  </div>
+</section>
+<section class="collection">
+  <div class="collection-header">
+    <div>
+      <h2>Stanley Create Collection</h2>
+      <span>273 Products</span>
+    </div>
+
+    <div class="controls">
+      <button>Filter</button>
+      <button>Sort by: Relevance</button>
+    </div>
+  </div>
+
+  <div class="products">
+  
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#c38eb4"></div>
+        <div class="color" style="background:#333"></div>
+        <div class="color" style="background:#5fa"></div>
+      </div>
+      <h4>The Quencher H2.0 Flowstate™ Tumbler</h4>
+      <div class="price">$22.50 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.1 (22982)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#8aa8ff"></div>
+        <div class="color" style="background:#999"></div>
+      </div>
+      <h4>Quencher ProTour Flip Straw Tumbler</h4>
+      <div class="price">$22.50 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.2 (11305)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" />
+      <div class="colors">
+        <div class="color" style="background:#c8b19c"></div>
+        <div class="color" style="background:#aaa"></div>
+      </div>
+      <h4>IceFlow™ Flip Straw Tumbler</h4>
+      <div class="price">$35.00</div>
+      <div class="rating">★★★★☆ 4.3 (8506)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#f59e7a"></div>
+        <div class="color" style="background:#0af"></div>
+      </div>
+      <h4>The Quencher H2.0 Flowstate™ Tumbler</h4>
+      <div class="price">$27.00 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.1 (22982)</div>
+    </div>
+  </div>
+</section>
+<section class="collection">
+  <div class="collection-header">
+    <div>
+      <h2>Stanley Create Collection</h2>
+      <span>273 Products</span>
+    </div>
+
+    <div class="controls">
+      <button>Filter</button>
+      <button>Sort by: Relevance</button>
+    </div>
+  </div>
+
+  <div class="products">
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#c38eb4"></div>
+        <div class="color" style="background:#333"></div>
+        <div class="color" style="background:#5fa"></div>
+      </div>
+      <h4>The Quencher H2.0 Flowstate™ Tumbler</h4>
+      <div class="price">$22.50 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.1 (22982)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#8aa8ff"></div>
+        <div class="color" style="background:#999"></div>
+      </div>
+      <h4>Quencher ProTour Flip Straw Tumbler</h4>
+      <div class="price">$22.50 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.2 (11305)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" />
+      <div class="colors">
+        <div class="color" style="background:#c8b19c"></div>
+        <div class="color" style="background:#aaa"></div>
+      </div>
+      <h4>IceFlow™ Flip Straw Tumbler</h4>
+      <div class="price">$35.00</div>
+      <div class="rating">★★★★☆ 4.3 (8506)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#f59e7a"></div>
+        <div class="color" style="background:#0af"></div>
+      </div>
+      <h4>The Quencher H2.0 Flowstate™ Tumbler</h4>
+      <div class="price">$27.00 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.1 (22982)</div>
+    </div>
+  </div>
+</section>
+<section class="collection">
+  <div class="collection-header">
+    <div>
+      <h2>Stanley Create Collection</h2>
+      <span>273 Products</span>
+    </div>
+
+    <div class="controls">
+      <button>Filter</button>
+      <button>Sort by: Relevance</button>
+    </div>
+  </div>
+
+  <div class="products">
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#c38eb4"></div>
+        <div class="color" style="background:#333"></div>
+        <div class="color" style="background:#5fa"></div>
+      </div>
+      <h4>The Quencher H2.0 Flowstate™ Tumbler</h4>
+      <div class="price">$22.50 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.1 (22982)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#8aa8ff"></div>
+        <div class="color" style="background:#999"></div>
+      </div>
+      <h4>Quencher ProTour Flip Straw Tumbler</h4>
+      <div class="price">$22.50 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.2 (11305)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" />
+      <div class="colors">
+        <div class="color" style="background:#c8b19c"></div>
+        <div class="color" style="background:#aaa"></div>
+      </div>
+      <h4>IceFlow™ Flip Straw Tumbler</h4>
+      <div class="price">$35.00</div>
+      <div class="rating">★★★★☆ 4.3 (8506)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#f59e7a"></div>
+        <div class="color" style="background:#0af"></div>
+      </div>
+      <h4>The Quencher H2.0 Flowstate™ Tumbler</h4>
+      <div class="price">$27.00 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.1 (22982)</div>
+    </div>
+  </div>
+</section>
+<section class="collection">
+  <div class="collection-header">
+    <div>
+      <h2>Stanley Create Collection</h2>
+      <span>273 Products</span>
+    </div>
+
+    <div class="controls">
+      <button>Filter</button>
+      <button>Sort by: Relevance</button>
+    </div>
+  </div>
+
+  <div class="products">
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#c38eb4"></div>
+        <div class="color" style="background:#333"></div>
+        <div class="color" style="background:#5fa"></div>
+      </div>
+      <h4>The Quencher H2.0 Flowstate™ Tumbler</h4>
+      <div class="price">$22.50 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.1 (22982)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#8aa8ff"></div>
+        <div class="color" style="background:#999"></div>
+      </div>
+      <h4>Quencher ProTour Flip Straw Tumbler</h4>
+      <div class="price">$22.50 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.2 (11305)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" />
+      <div class="colors">
+        <div class="color" style="background:#c8b19c"></div>
+        <div class="color" style="background:#aaa"></div>
+      </div>
+      <h4>IceFlow™ Flip Straw Tumbler</h4>
+      <div class="price">$35.00</div>
+      <div class="rating">★★★★☆ 4.3 (8506)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#f59e7a"></div>
+        <div class="color" style="background:#0af"></div>
+      </div>
+      <h4>The Quencher H2.0 Flowstate™ Tumbler</h4>
+      <div class="price">$27.00 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.1 (22982)</div>
+    </div>
+  </div>
+</section>
+<section class="collection">
+  <div class="collection-header">
+    <div>
+      <h2>Stanley Create Collection</h2>
+      <span>273 Products</span>
+    </div>
+
+    <div class="controls">
+      <button>Filter</button>
+      <button>Sort by: Relevance</button>
+    </div>
+  </div>
+
+  <div class="products">
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#c38eb4"></div>
+        <div class="color" style="background:#333"></div>
+        <div class="color" style="background:#5fa"></div>
+      </div>
+      <h4>The Quencher H2.0 Flowstate™ Tumbler</h4>
+      <div class="price">$22.50 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.1 (22982)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#8aa8ff"></div>
+        <div class="color" style="background:#999"></div>
+      </div>
+      <h4>Quencher ProTour Flip Straw Tumbler</h4>
+      <div class="price">$22.50 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.2 (11305)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" />
+      <div class="colors">
+        <div class="color" style="background:#c8b19c"></div>
+        <div class="color" style="background:#aaa"></div>
+      </div>
+      <h4>IceFlow™ Flip Straw Tumbler</h4>
+      <div class="price">$35.00</div>
+      <div class="rating">★★★★☆ 4.3 (8506)</div>
+    </div>
+
+    
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" />
+      <div class="colors">
+        <div class="color" style="background:#f59e7a"></div>
+        <div class="color" style="background:#0af"></div>
+      </div>
+      <h4>The Quencher H2.0 Flowstate™ Tumbler</h4>
+      <div class="price">$27.00 <span class="old">$45.00</span></div>
+      <div class="rating">★★★★☆ 4.1 (22982)</div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="stanley-footer">
+
+  
+  <div class="footer-top">
+    <div class="newsletter">
+      <h2>Be the first to know</h2>
+      <p>Hear about new arrivals, sales, and other news.</p>
+
+      <div class="email-row">
+        <input type="email" placeholder="Your Email Address">
+        <span class="arrow">→</span>
+      </div>
+    </div>
+
+    <div class="sms">
+      <p class="sms-title">
+        To receive SMS updates, text <strong>STANLEY</strong> to <strong>22936</strong>
+      </p>
+      <p class="sms-small">
+        Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available).
+        <span>Privacy Policy</span> & <span>Terms</span>.
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="shop-link">
+    <a href="#">Shop Stanley 1913 <span>→</span></a>
+  </div>
+
+  
+  <div class="footer-links">
+    <div class="col">
+      <h4>Company</h4>
+      <a>About Stanley 1913</a>
+      <a>Careers</a>
+      <a>Meet the BearForce</a>
+      <a>Employee Spotlight</a>
+      <a>Stanley 1913 Creators Fund</a>
+      <a>Sustainability</a>
+      <a>Stanley 1913 Take Back</a>
+      <a>Blogs</a>
+      <a>Refer a Friend</a>
+      <a>Affiliate Program</a>
+    </div>
+
+    <div class="col">
+      <h4>Support</h4>
+      <a>FAQ</a>
+      <a>Contact Us</a>
+      <a>Returns</a>
+      <a>Stainless-Steel Warranty Policy</a>
+      <a>Product Recalls</a>
+      <a>Soft Goods Warranty Policy</a>
+      <a>Find a Retail Store</a>
+      <a>Order Tracking</a>
+    </div>
+  </div>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shop Stanley Products</title>
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background: #fff;
+  color: #111;
+}
+
+
+.shop-topbar {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+}
+
+
+.shop-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 18px 40px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.shop-nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+.shop-nav a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #111;
+}
+
+.shop-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.shop-actions input {
+  padding: 10px 16px;
+  border-radius: 24px;
+  border: 1px solid #ccc;
+  width: 220px;
+}
+
+.cart {
+  font-size: 20px;
+}
+
+
+.shop-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 60px 30px;
+}
+
+.shop-title-row h1 {
+  font-size: 36px;
+}
+
+.count {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+}
+
+.controls button,
+.controls select {
+  padding: 10px 16px;
+  border: 1px solid #000;
+  background: #fff;
+  font-size: 14px;
+}
+
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px;
+  padding: 0 60px 80px;
+}
+
+.product-card img {
+  width: 100%;
+  height: 420px;
+  object-fit: contain;
+  background: #f6f6f6;
+  border-radius: 16px;
+}
+
+.swatches {
+  display: flex;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.swatches span {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
+
+.variant {
+  font-size: 14px;
+}
+
+
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .shop-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .shop-nav {
+    flex-wrap: wrap;
+  }
+
+  .shop-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 40px 24px 20px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    padding: 0 24px 60px;
+  }
+
+  .shop-actions input {
+    width: 100%;
+  }
+}
+
+.popular-categories {
+  padding: 80px 60px;
+  font-family: Arial, sans-serif;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  font-size: 14px;
+}
+
+.pagination span {
+  cursor: default;
+  color: #111;
+}
+
+.pagination .active {
+  border: 1px solid #000;
+  padding: 2px 8px;
+}
+
+
+.popular-categories h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+
+.category-card {
+  background: #f7f7f7;
+  border-radius: 12px;
+  padding: 30px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+.category-card.wide {
+  grid-column: span 2;
+}
+
+.category-card .images {
+  display: flex;
+  gap: 12px;
+}
+
+.category-card .images img {
+  width: 60px;
+  height: auto;
+}
+
+
+.side-img {
+  width: 60px;
+  height: auto;
+}
+
+
+@media (max-width: 1024px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category-card.wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .popular-categories {
+    padding: 60px 24px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card.wide {
+    grid-column: span 1;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+}
+
+
+.stanley-footer {
+  background: #000;
+  color: #fff;
+  padding: 70px 60px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  margin-bottom: 60px;
+}
+
+.newsletter h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.newsletter p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+
+.email-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #666;
+  padding-bottom: 10px;
+  max-width: 520px;
+}
+
+.email-row input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  flex: 1;
+  font-size: 14px;
+}
+
+.email-row input::placeholder {
+  color: #aaa;
+}
+
+.arrow {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+
+.sms-title {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.sms-small {
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+.sms-small span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.shop-link {
+  text-align: right;
+  margin-bottom: 60px;
+}
+
+.shop-link a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.shop-link span {
+  margin-left: 8px;
+}
+
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 120px;
+}
+
+.col h4 {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.col a {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 12px;
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+.col a:hover {
+  opacity: 1;
+}
+
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .shop-link {
+    text-align: left;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .stanley-footer {
+    padding: 50px 24px;
+  }
+
+  .newsletter h2 {
+    font-size: 24px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="shop-topbar">
+  Messi x Stanley 1913
+</div>
+
+
+<header class="shop-header">
+  <div class="logo">STANLEY</div>
+
+  <nav class="shop-nav">
+    <a href="#">Shop</a>
+    <a href="#">Trending</a>
+    <a href="#">Customize</a>
+    <a href="#">Sale</a>
+    <a href="#">Holiday Gift Guide</a>
+  </nav>
+
+  <div class="shop-actions">
+    <input type="text" placeholder="What are you looking for?" />
+    <span class="cart">🛒</span>
+  </div>
+</header>
+
+
+<div class="shop-title-row">
+  <div>
+    <h1>Shop Stanley Products</h1>
+    <p class="count">1,436 Products</p>
+  </div>
+
+  <div class="controls">
+    <button>☰ Filter</button>
+    <select>
+      <option>Sort by: Relevance</option>
+    </select>
+  </div>
+</div>
+
+<section class="product-section">
+  <div class="product-grid">
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches single">
+        <span style="background:#ff5f9e"></span>
+      </div>
+
+      <p class="variant">40oz | Pink Parade</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge club">Stanley Club Exclusive</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (731)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8a3d8"></span>
+        <span style="background:#7b2d2d"></span>
+        <span style="background:#f3b7d9"></span>
+        <span style="background:#00a86b"></span>
+        <span style="background:#00bcd4"></span>
+        <span style="background:#ff6f61"></span>
+        <span style="background:#7d8cc4"></span>
+      </div>
+
+      <p class="variant">40oz | Lilac</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (22982)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#8fa3d6"></span>
+        <span style="background:#a58b8b"></span>
+        <span style="background:#7d8b6a"></span>
+        <span style="background:#0077b6"></span>
+        <span style="background:#c7e6c8"></span>
+        <span style="background:#f4c2d7"></span>
+        <span style="background:#444"></span>
+      </div>
+
+      <p class="variant">40oz | Hydrangea</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.2 (11305)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8b199"></span>
+        <span style="background:#8b1e2d"></span>
+        <span style="background:#355e3b"></span>
+        <span style="background:#e7e1d3"></span>
+        <span style="background:#333"></span>
+      </div>
+
+      <p class="variant">40oz | Prosecco Shimmer</p>
+
+      <div class="badges">
+        <span class="badge limited">Limited Edition</span>
+      </div>
+
+      <h3>The Cheers & Cheer Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="regular">$50.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.5 (121)</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="product-section">
+  <div class="product-grid">
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches single">
+        <span style="background:#ff5f9e"></span>
+      </div>
+
+      <p class="variant">40oz | Pink Parade</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge club">Stanley Club Exclusive</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (731)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8a3d8"></span>
+        <span style="background:#7b2d2d"></span>
+        <span style="background:#f3b7d9"></span>
+        <span style="background:#00a86b"></span>
+        <span style="background:#00bcd4"></span>
+        <span style="background:#ff6f61"></span>
+        <span style="background:#7d8cc4"></span>
+      </div>
+
+      <p class="variant">40oz | Lilac</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (22982)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#8fa3d6"></span>
+        <span style="background:#a58b8b"></span>
+        <span style="background:#7d8b6a"></span>
+        <span style="background:#0077b6"></span>
+        <span style="background:#c7e6c8"></span>
+        <span style="background:#f4c2d7"></span>
+        <span style="background:#444"></span>
+      </div>
+
+      <p class="variant">40oz | Hydrangea</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.2 (11305)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8b199"></span>
+        <span style="background:#8b1e2d"></span>
+        <span style="background:#355e3b"></span>
+        <span style="background:#e7e1d3"></span>
+        <span style="background:#333"></span>
+      </div>
+
+      <p class="variant">40oz | Prosecco Shimmer</p>
+
+      <div class="badges">
+        <span class="badge limited">Limited Edition</span>
+      </div>
+
+      <h3>The Cheers & Cheer Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="regular">$50.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.5 (121)</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="product-section">
+  <div class="product-grid">
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches single">
+        <span style="background:#ff5f9e"></span>
+      </div>
+
+      <p class="variant">40oz | Pink Parade</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge club">Stanley Club Exclusive</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (731)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8a3d8"></span>
+        <span style="background:#7b2d2d"></span>
+        <span style="background:#f3b7d9"></span>
+        <span style="background:#00a86b"></span>
+        <span style="background:#00bcd4"></span>
+        <span style="background:#ff6f61"></span>
+        <span style="background:#7d8cc4"></span>
+      </div>
+
+      <p class="variant">40oz | Lilac</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (22982)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#8fa3d6"></span>
+        <span style="background:#a58b8b"></span>
+        <span style="background:#7d8b6a"></span>
+        <span style="background:#0077b6"></span>
+        <span style="background:#c7e6c8"></span>
+        <span style="background:#f4c2d7"></span>
+        <span style="background:#444"></span>
+      </div>
+
+      <p class="variant">40oz | Hydrangea</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.2 (11305)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8b199"></span>
+        <span style="background:#8b1e2d"></span>
+        <span style="background:#355e3b"></span>
+        <span style="background:#e7e1d3"></span>
+        <span style="background:#333"></span>
+      </div>
+
+      <p class="variant">40oz | Prosecco Shimmer</p>
+
+      <div class="badges">
+        <span class="badge limited">Limited Edition</span>
+      </div>
+
+      <h3>The Cheers & Cheer Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="regular">$50.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.5 (121)</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="product-section">
+  <div class="product-grid">
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches single">
+        <span style="background:#ff5f9e"></span>
+      </div>
+
+      <p class="variant">40oz | Pink Parade</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge club">Stanley Club Exclusive</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (731)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8a3d8"></span>
+        <span style="background:#7b2d2d"></span>
+        <span style="background:#f3b7d9"></span>
+        <span style="background:#00a86b"></span>
+        <span style="background:#00bcd4"></span>
+        <span style="background:#ff6f61"></span>
+        <span style="background:#7d8cc4"></span>
+      </div>
+
+      <p class="variant">40oz | Lilac</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (22982)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#8fa3d6"></span>
+        <span style="background:#a58b8b"></span>
+        <span style="background:#7d8b6a"></span>
+        <span style="background:#0077b6"></span>
+        <span style="background:#c7e6c8"></span>
+        <span style="background:#f4c2d7"></span>
+        <span style="background:#444"></span>
+      </div>
+
+      <p class="variant">40oz | Hydrangea</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.2 (11305)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8b199"></span>
+        <span style="background:#8b1e2d"></span>
+        <span style="background:#355e3b"></span>
+        <span style="background:#e7e1d3"></span>
+        <span style="background:#333"></span>
+      </div>
+
+      <p class="variant">40oz | Prosecco Shimmer</p>
+
+      <div class="badges">
+        <span class="badge limited">Limited Edition</span>
+      </div>
+
+      <h3>The Cheers & Cheer Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="regular">$50.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.5 (121)</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="product-section">
+  <div class="product-grid">
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches single">
+        <span style="background:#ff5f9e"></span>
+      </div>
+
+      <p class="variant">40oz | Pink Parade</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge club">Stanley Club Exclusive</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (731)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8a3d8"></span>
+        <span style="background:#7b2d2d"></span>
+        <span style="background:#f3b7d9"></span>
+        <span style="background:#00a86b"></span>
+        <span style="background:#00bcd4"></span>
+        <span style="background:#ff6f61"></span>
+        <span style="background:#7d8cc4"></span>
+      </div>
+
+      <p class="variant">40oz | Lilac</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (22982)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#8fa3d6"></span>
+        <span style="background:#a58b8b"></span>
+        <span style="background:#7d8b6a"></span>
+        <span style="background:#0077b6"></span>
+        <span style="background:#c7e6c8"></span>
+        <span style="background:#f4c2d7"></span>
+        <span style="background:#444"></span>
+      </div>
+
+      <p class="variant">40oz | Hydrangea</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.2 (11305)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8b199"></span>
+        <span style="background:#8b1e2d"></span>
+        <span style="background:#355e3b"></span>
+        <span style="background:#e7e1d3"></span>
+        <span style="background:#333"></span>
+      </div>
+
+      <p class="variant">40oz | Prosecco Shimmer</p>
+
+      <div class="badges">
+        <span class="badge limited">Limited Edition</span>
+      </div>
+
+      <h3>The Cheers & Cheer Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="regular">$50.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.5 (121)</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="product-section">
+  <div class="product-grid">
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches single">
+        <span style="background:#ff5f9e"></span>
+      </div>
+
+      <p class="variant">40oz | Pink Parade</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge club">Stanley Club Exclusive</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (731)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8a3d8"></span>
+        <span style="background:#7b2d2d"></span>
+        <span style="background:#f3b7d9"></span>
+        <span style="background:#00a86b"></span>
+        <span style="background:#00bcd4"></span>
+        <span style="background:#ff6f61"></span>
+        <span style="background:#7d8cc4"></span>
+      </div>
+
+      <p class="variant">40oz | Lilac</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (22982)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#8fa3d6"></span>
+        <span style="background:#a58b8b"></span>
+        <span style="background:#7d8b6a"></span>
+        <span style="background:#0077b6"></span>
+        <span style="background:#c7e6c8"></span>
+        <span style="background:#f4c2d7"></span>
+        <span style="background:#444"></span>
+      </div>
+
+      <p class="variant">40oz | Hydrangea</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.2 (11305)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8b199"></span>
+        <span style="background:#8b1e2d"></span>
+        <span style="background:#355e3b"></span>
+        <span style="background:#e7e1d3"></span>
+        <span style="background:#333"></span>
+      </div>
+
+      <p class="variant">40oz | Prosecco Shimmer</p>
+
+      <div class="badges">
+        <span class="badge limited">Limited Edition</span>
+      </div>
+
+      <h3>The Cheers & Cheer Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="regular">$50.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.5 (121)</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="product-section">
+  <div class="product-grid">
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/Web_PNG_Square-TheQuencherProTourFlipStrawTumbler40OZ-Hydrangea-Front.png?v=1758731232&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches single">
+        <span style="background:#ff5f9e"></span>
+      </div>
+
+      <p class="variant">40oz | Pink Parade</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge club">Stanley Club Exclusive</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (731)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://www.stanley1913.com/cdn/shop/files/Web_PNG_Square-The_Quencher_H2.0_FlowState_Tumbler_30OZ_-_Star_Shine_-_Front.png?v=1765213151" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8a3d8"></span>
+        <span style="background:#7b2d2d"></span>
+        <span style="background:#f3b7d9"></span>
+        <span style="background:#00a86b"></span>
+        <span style="background:#00bcd4"></span>
+        <span style="background:#ff6f61"></span>
+        <span style="background:#7d8cc4"></span>
+      </div>
+
+      <p class="variant">40oz | Lilac</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher H2.0 FlowState™ Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.1 (22982)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Lilac-Front-1.png?v=1753826039&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#8fa3d6"></span>
+        <span style="background:#a58b8b"></span>
+        <span style="background:#7d8b6a"></span>
+        <span style="background:#0077b6"></span>
+        <span style="background:#c7e6c8"></span>
+        <span style="background:#f4c2d7"></span>
+        <span style="background:#444"></span>
+      </div>
+
+      <p class="variant">40oz | Hydrangea</p>
+
+      <div class="badges">
+        <span class="badge sale">Sale</span>
+        <span class="badge custom">Customizable</span>
+      </div>
+
+      <h3>The Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="sale-price">$22.50</span>
+        <span class="old-price">$45.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.2 (11305)</span>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="img-box">
+        <img src="https://cdn.shopify.com/s/files/1/0375/3269/6635/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-40OZ-Pink-Parade-Front_34b1de50-cb5c-4fd0-a7ff-ae824739466c.png?v=1762182087&width=824&height=824" alt="">
+      </div>
+
+      <div class="swatches">
+        <span style="background:#c8b199"></span>
+        <span style="background:#8b1e2d"></span>
+        <span style="background:#355e3b"></span>
+        <span style="background:#e7e1d3"></span>
+        <span style="background:#333"></span>
+      </div>
+
+      <p class="variant">40oz | Prosecco Shimmer</p>
+
+      <div class="badges">
+        <span class="badge limited">Limited Edition</span>
+      </div>
+
+      <h3>The Cheers & Cheer Quencher ProTour Flip Straw Tumbler</h3>
+
+      <p class="price">
+        <span class="regular">$50.00</span>
+      </p>
+
+      <div class="rating">
+        ★★★★☆ <span>4.5 (121)</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="popular-categories">
+
+  
+  <div class="pagination">
+    <span>&lt;</span>
+    <span class="active">1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+    <span>7</span>
+    <span>&gt;</span>
+  </div>
+
+  <h2>Popular Categories</h2>
+
+  <div class="category-grid">
+
+    
+    <div class="category-card wide">
+      <div class="text">
+        <h3>Accessories</h3>
+      </div>
+      <div class="images">
+        <img src="https://www.stanley1913.com/cdn/shop/files/B2B_Web_PNG-Adventure-Quencher-Travel-Tumbler-Straws-40-OZ-4-Pack.png?v=1717441555&width=1515" />
+        <img src="https://www.stanley1913.com/cdn/shop/files/B2B_Web_PNG-GO-Flip-Straw-Water-Bottle-Lid-17oz-22oz-Charcoal_24fd624b-4be2-4a33-b64e-37d746f98ec3.png?v=1705108477&width=1515" />
+        <img src="https://www.stanley1913.com/cdn/shop/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-Lid-40OZ-Milky-White_82723322-42c1-46ab-b5cb-cac130fc59c8.png?v=1762182028&width=1515" />
+      </div>
+    </div>
+
+    
+    <div class="category-card">
+      <h3>Quenchers</h3>
+    </div>
+
+    
+    <div class="category-card">
+      <h3>IceFlow</h3>
+    </div>
+
+    
+    <div class="category-card">
+      <h3>Water Bottles</h3>
+    </div>
+
+    
+    <div class="category-card">
+      <h3>Tumblers</h3>
+      <img class="side-img" src="https://www.stanley1913.com/cdn/shop/files/B2B_Web_PNG-The-Quencher-H2-O-FlowState-Tumbler-64OZ-Black-Tonal-Front_0634d7b9-9ad0-4186-8629-ca35742427b2.png?v=1706799600&width=1515" />
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="stanley-footer">
+
+        
+        <div class="footer-top">
+            <div class="newsletter">
+                <h2>Be the first to know</h2>
+                <p>Hear about new arrivals, sales, and other news.</p>
+
+                <div class="email-row">
+                    <input type="email" placeholder="Your Email Address">
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+
+            <div class="sms">
+                <p class="sms-title">
+                    To receive SMS updates, text <strong>STANLEY</strong> to <strong>22936</strong>
+                </p>
+                <p class="sms-small">
+                    Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP or
+                    clicking the unsubscribe link (where available).
+                    <span>Privacy Policy</span> & <span>Terms</span>.
+                </p>
+            </div>
+        </div>
+
+        
+        <div class="shop-link">
+            <a href="#">Shop Stanley 1913 <span>→</span></a>
+        </div>
+
+        
+        <div class="footer-links">
+            <div class="col">
+                <h4>Company</h4>
+                <a>About Stanley 1913</a>
+                <a>Careers</a>
+                <a>Meet the BearForce</a>
+                <a>Employee Spotlight</a>
+                <a>Stanley 1913 Creators Fund</a>
+                <a>Sustainability</a>
+                <a>Stanley 1913 Take Back</a>
+                <a>Blogs</a>
+                <a>Refer a Friend</a>
+                <a>Affiliate Program</a>
+            </div>
+
+            <div class="col">
+                <h4>Support</h4>
+                <a>FAQ</a>
+                <a>Contact Us</a>
+                <a>Returns</a>
+                <a>Stainless-Steel Warranty Policy</a>
+                <a>Product Recalls</a>
+                <a>Soft Goods Warranty Policy</a>
+                <a>Find a Retail Store</a>
+                <a>Order Tracking</a>
+            </div>
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
