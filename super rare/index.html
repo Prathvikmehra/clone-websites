@@ -424,6 +424,48 @@
         text-align: left;
       }
     }
+
+
+@media (max-width: 900px) {
+
+  header {
+    position: relative;
+    padding: 12px 16px;
+  }
+
+  header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #000;
+    padding: 20px;
+    z-index: 100;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  header:hover nav {
+    display: block;
+  }
+
+  .actions::after {
+    content: "☰";
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 16px;
+    color: #fff;
+  }
+
+  .actions .search {
+    display: none;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -464,11 +506,11 @@
         <div class="card-info"><h3>The Last of Us</h3></div>
       </div>
       <div class="featured-card">
-        <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731" alt="">
+        <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F0f9d17073cb9f4725c9808bc44461f661df773aca5a647d553d0d69c69f41d40.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=799&s=15133c131767db11f0f872927d30facb" alt="">
         <div class="card-info"><h3>The Feeling of Isolation</h3></div>
       </div>
       <div class="featured-card">
-        <img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731" alt="">
+        <img src="https://pixura.imgix.net/https%3A%2F%2Fsuperrare.myfilebase.com%2Fipfs%2FQmdp7ws7eTiQfANoVUmjF1meZVMSywSQoPrpwg98zijNUE?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1247&s=297c219f6c03c65f9f9ec71db94825a1" alt="">
         <div class="card-info"><h3>Blue Shadow</h3></div>
       </div>
     </div>
@@ -478,9 +520,9 @@
       <h2>Auctions</h2><button class="see-all">See All</button>
     </div>
     <div class="auctions-grid">
-      <div class="auction-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"><div class="auction-info"><h3>STAY CLOSER</h3></div></div>
+      <div class="auction-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252Fca0d5987135535246ddcbcdece661d96680bcf8360b88f27ca4cf0985c94ef0b.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=1247&s=de9b5c9c73571877c82407918fc3ae16"><div class="auction-info"><h3>STAY CLOSER</h3></div></div>
       <div class="auction-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"><div class="auction-info"><h3>The Cry of the Earth</h3></div></div>
-      <div class="auction-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"><div class="auction-info"><h3>TX1: The Sermon</h3></div></div>
+      <div class="auction-card"><img src="https://pixura.imgix.net/https%3A%2F%2Farweave.net%2FBzJUHCO2vqBzXIi7dgl2XKwkstderDC-aiy02hsmxi8?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=799&s=f323d234bd8af7ce95b639541fde254b"><div class="auction-info"><h3>TX1: The Sermon</h3></div></div>
     </div>
   </section>
 
@@ -488,9 +530,9 @@
     <h2>The Result of Habits by Alexis Olin</h2>
     <p class="description">Alexis Olin's latest series, The Result of Habits, explores how repetition and routine shape both technique and perception...</p>
     <div class="habits-grid">
-      <div class="habits-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"></div>
-      <div class="habits-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"></div>
-      <div class="habits-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"></div>
+      <div class="habits-card"><img src="https://pixura.imgix.net/https%3A%2F%2Farweave.net%2FotJ8JVFTTwdfbGSJKgDwTKEAP9eO8pEEs-QflUhsUgI?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=799&s=10fcbb5274f34d0a1322fdd8784ffceb"></div>
+      <div class="habits-card"><img src="https://img.freepik.com/premium-vector/abstract-art_665280-52375.jpg"></div>
+      <div class="habits-card"><img src="https://fbi.cults3d.com/uploaders/4282751/illustration-file/2065d57f-5d9e-4c22-9c2b-6c4f3e41680b/Maison-hantee-Halloween-1.jpg"></div>
       <div class="habits-card"><img src="https://pixura.imgix.net/https%3A%2F%2Fstorage.googleapis.com%2Fsr_prod_artworks_bucket%2Fasset%252F6219d35e81f2c11fed94c8aa8d2d376d813ebdf0acfbe71632d243b0f53beb47.jpeg?ixlib=js-3.8.0&auto=format&quality=100&fit=max&cs=origin&w=441&s=e8c60282bfe7fc14295ba5450114b731"></div>
     </div>
   </section>
