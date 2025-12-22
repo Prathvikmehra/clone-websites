@@ -408,6 +408,154 @@ body {
     font-size: 24px;
   }
 }
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+section, header, footer {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media (max-width: 900px) {
+
+  .shop-header {
+    position: relative;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .shop-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    z-index: 100;
+  }
+
+  .shop-header:hover .shop-nav {
+    display: flex;
+  }
+
+  .shop-actions::after {
+    content: "☰";
+    font-size: 22px;
+    cursor: pointer;
+    margin-left: 12px;
+  }
+
+  .shop-actions input {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .shop-title-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.img-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .pagination {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 10px;
+  }
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card.wide {
+    grid-column: auto;
+  }
+}
+@media (max-width: 900px) {
+
+  .footer-top {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .email-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
 
 </style>
 </head>
