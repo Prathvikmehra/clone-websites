@@ -619,6 +619,44 @@
                 font-size: 32px
             }
         }
+
+
+@media (max-width: 900px) {
+
+  .navbar {
+    position: relative;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    z-index: 100;
+  }
+  .navbar:hover .nav-links {
+    display: flex;
+  }
+
+  .nav-actions::after {
+    content: "☰";
+    font-size: 22px;
+    cursor: pointer;
+    margin-left: 16px;
+    display: inline-block;
+  }
+  .nav-left .search {
+    display: none;
+  }
+}
+
+        
     </style>
 </head>
 
@@ -669,11 +707,11 @@
             <div class="trusted container" style="grid-column:1 / -1">
                 <p>Trusted by</p>
                 <div class="brand-row">
-                    <img src="https://logo.clearbit.com/flatfile.com" alt="Flatfile" />
-                    <img src="https://logo.clearbit.com/stripe.com" alt="Stripe" />
-                    <img src="https://logo.clearbit.com/mixpanel.com" alt="Mixpanel" />
-                    <img src="https://logo.clearbit.com/sprig.com" alt="Sprig" />
-                    <img src="https://logo.clearbit.com/veed.io" alt="Veed" />
+                    <img src="https://ph-static.imgix.net/advertising/logos/flatfile.svg?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=117&h=26&fit=max&frame=1&dpr=2" alt="Flatfile" />
+                    <img src="https://ph-static.imgix.net/advertising/logos/stripe.svg?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=94&h=39&fit=max&frame=1&dpr=2" alt="Stripe" />
+                    <img src="https://ph-static.imgix.net/advertising/logos/mixpanel.svg?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=122&h=40&fit=max&frame=1&dpr=2" alt="Mixpanel" />
+                    <img src="https://ph-static.imgix.net/advertising/logos/sprig.svg?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=90&h=34&fit=max&frame=1&dpr=2" alt="Sprig" />
+                    <img src="https://ph-static.imgix.net/advertising/logos/veed.svg?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=120&h=22&fit=max&frame=1&dpr=2" alt="Veed" />
                 </div>
             </div>
         </section>
@@ -738,11 +776,11 @@
                 <button class="btn btn-outline">Get Started Now</button>
             </div>
             <div class="hero-avatars" aria-hidden="true">
-                <img class="avatar a1" src="https://logo.clearbit.com/figma.com" alt="Figma" />
-                <img class="avatar a2" src="https://logo.clearbit.com/linear.app" alt="Linear" />
-                <img class="avatar a3" src="https://logo.clearbit.com/loom.com" alt="Loom" />
-                <img class="avatar a4" src="https://logo.clearbit.com/cash.app" alt="Cashapp" />
-                <img class="avatar a5" src="https://logo.clearbit.com/replit.com" alt="Replit" />
+                <img class="avatar a1" src="https://i.ytimg.com/vi/Cx2dkpBxst8/maxresdefault.jpg" alt="Figma" />
+                <img class="avatar a2" src="https://c8.alamy.com/comp/2J3G619/abstract-art-background-with-colorful-painting-liquid-stains-shapes-linear-and-grunge-elements-paint-brush-texture-decoration-posters-modern-acry-2J3G619.jpg" alt="Linear" />
+                <img class="avatar a3" src="https://goodknitkisses.com/wp-content/uploads/2014/08/IMG_6629.jpg" alt="Loom" />
+                <img class="avatar a4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Square_Cash_app_logo.svg/1200px-Square_Cash_app_logo.svg.png" alt="Cashapp" />
+                <img class="avatar a5" src="https://tse3.mm.bing.net/th/id/OIP.ietoJ5m86mCQja3ZXFdrbwHaFj?pid=Api&P=0&h=180" alt="Replit" />
             </div>
         </section>
 
@@ -811,9 +849,8 @@
                 </div>
                 <div>
                     <div class="ad-box">
-                        <div class="ad-head"><span>SPONSORED BY</span><img src="https://logo.clearbit.com/zendesk.com"
-                                alt="Zendesk" style="height:18px" /></div>
-                        <img src="https://d1.awsstatic.com/startups/campaigns/zendesk-startups-banner.3a1a3f7a07c1b2f6c0d4.png"
+                       
+                        <img src="https://ph-static.imgix.net/advertising/campaigns/desktop/managed.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=427&fit=max&frame=1&dpr=2"
                             alt="Zendesk offer" />
                     </div>
                 </div>

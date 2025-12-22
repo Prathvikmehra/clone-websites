@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Hunt Clone</title>
     <style>
-                body {
+        body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: #f5f5f5;
@@ -17,7 +17,7 @@
             color: inherit;
         }
 
-                .navbar {
+        .navbar {
             position: sticky;
             top: 0;
             display: flex;
@@ -37,8 +37,19 @@
 
         .logo {
             font-weight: bold;
+            width: 30px;
+            height: 30px;
             font-size: 1.5em;
-                    }
+            background-color: #FF6600;
+            text-align: center;
+            border-radius: 100%;
+            color: white;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            padding: 4px;
+        }
+
 
         .search-box {
             padding: 5px 10px;
@@ -71,7 +82,7 @@
             color: #ff6600;
         }
 
-                .container {
+        .container {
             display: flex;
             width: 90%;
             max-width: 1200px;
@@ -101,7 +112,7 @@
             margin-bottom: 15px;
         }
 
-                .product-card {
+        .product-card {
             background: #fff;
             display: flex;
             justify-content: space-between;
@@ -114,7 +125,7 @@
         }
 
         .product-card.highlight {
-            background: #fdf2e9;
+            background: #ffffff;
         }
 
         .product-card:hover {
@@ -146,7 +157,7 @@
             text-align: right;
         }
 
-                .footer {
+        .footer {
             background-color: rgb(16 24 40 / var(--tw-bg-opacity, 1));
             padding: 50px 20px;
             margin-top: 50px;
@@ -173,6 +184,7 @@
             text-align: center;
             margin-top: 30px;
             font-size: 0.9em;
+            color: rgb(255, 255, 255);
         }
 
         @media(max-width: 768px) {
@@ -196,11 +208,50 @@
                 margin-top: 20px;
             }
         }
+
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                position: relative;
+                padding: 12px 16px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                gap: 16px;
+                padding: 20px;
+                border-bottom: 1px solid #ddd;
+                z-index: 100;
+            }
+
+            .navbar:hover .nav-links {
+                display: flex;
+            }
+
+            .nav-right::after {
+                content: "☰";
+                font-size: 22px;
+                cursor: pointer;
+                margin-left: 16px;
+                display: inline-block;
+            }
+
+            .search-box {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body>
-  
+
     <header class="navbar">
         <div class="nav-left">
             <div class="logo">P</div>
@@ -225,7 +276,9 @@
 
             <div class="product-card">
                 <div class="product-info">
-                    <h3>1. v0 for iOS</h3>
+                    <img src="https://ph-files.imgix.net/c25d0c57-222f-489e-81bd-9d2439f189c1.jpeg?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="18px">
+                    <h3> v0 for iOS</h3>
                     <p>Build anything with AI</p>
                     <span class="tags">iOS • Developer Tools • Vibe coding</span>
                 </div>
@@ -237,7 +290,9 @@
 
             <div class="product-card highlight">
                 <div class="product-info">
-                    <h3>2. AI CMO by Lindy</h3>
+                    <img src="https://ph-files.imgix.net/de3ea0d7-6faf-448e-9053-5b00df45f442.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="18px">
+                    <h3> AI CMO by Lindy</h3>
                     <p>Launch 1000s of marketing experiments in minutes</p>
                     <span class="tags">Productivity • Marketing • Artificial Intelligence</span>
                 </div>
@@ -249,7 +304,9 @@
 
             <div class="product-card">
                 <div class="product-info">
-                    <h3>3. Alai</h3>
+                    <img src="https://ph-files.imgix.net/99b3e788-14c7-4bbb-97ea-d87c23c9318f.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="18px">
+                    <h3> Alai</h3>
                     <p>Create high quality presentations using AI</p>
                     <span class="tags">Design Tools • Productivity • Artificial Intelligence</span>
                 </div>
@@ -261,7 +318,9 @@
 
             <div class="product-card">
                 <div class="product-info">
-                    <h3>4. Starbase</h3>
+                    <img src="https://ph-files.imgix.net/1cff965e-4355-4dcc-9da1-126e34310d38.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="18px">
+                    <h3> Starbase</h3>
                     <p>Browser-based MCP server testing with AI chat integration</p>
                     <span class="tags">Developer Tools • Artificial Intelligence • GitHub</span>
                 </div>
@@ -273,7 +332,9 @@
 
             <div class="product-card">
                 <div class="product-info">
-                    <h3>5. ChatFlow</h3>
+                    <img src="https://ph-files.imgix.net/0a2f2ba8-48b7-47e7-acdc-d3b75666cb70.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="18px">
+                    <h3> ChatFlow</h3>
                     <p>Automate customer support with AI chatbots</p>
                     <span class="tags">Customer Support • AI • Automation</span>
                 </div>
@@ -290,7 +351,9 @@
             </div>
             <div class="product-card highlight">
                 <div class="product-info">
-                    <h3>6. TrendAnalyzer</h3>
+                    <img src="https://ph-files.imgix.net/76ab59d2-551c-4775-a162-f8490956d66f.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="23px">
+                    <h3> TrendAnalyzer</h3>
                     <p>Spot trends before they go viral</p>
                     <span class="tags">Marketing • Analytics • AI</span>
                 </div>
@@ -302,7 +365,9 @@
 
             <div class="product-card">
                 <div class="product-info">
-                    <h3>7. DesignBot</h3>
+                    <img src="https://ph-files.imgix.net/ae0ea965-90b7-4d6e-bf93-b7675ecca0d2.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> DesignBot</h3>
                     <p>Create stunning visuals in seconds</p>
                     <span class="tags">Design • Creativity • AI Tools</span>
                 </div>
@@ -314,7 +379,9 @@
 
             <div class="product-card highlight">
                 <div class="product-info">
-                    <h3>8. CodeWhiz</h3>
+                    <img src="https://ph-files.imgix.net/f8ccb003-3da9-4106-8d0a-569195320b21.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> CodeWhiz</h3>
                     <p>Auto-generate clean code for your projects</p>
                     <span class="tags">Development • Productivity • AI</span>
                 </div>
@@ -326,7 +393,9 @@
 
             <div class="product-card">
                 <div class="product-info">
-                    <h3>9. NoteMate</h3>
+                    <img src="https://ph-files.imgix.net/f8ccb003-3da9-4106-8d0a-569195320b21.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> NoteMate</h3>
                     <p>Smart AI notetaker for students and professionals</p>
                     <span class="tags">Productivity • AI • Notes</span>
                 </div>
@@ -338,7 +407,9 @@
 
             <div class="product-card highlight">
                 <div class="product-info">
-                    <h3>10. MarketGenie</h3>
+                    <img src="https://ph-files.imgix.net/f7142edb-b424-4022-896f-2f736c80eaf4.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> MarketGenie</h3>
                     <p>Generate marketing content in seconds using AI</p>
                     <span class="tags">Marketing • AI • Content Creation</span>
                 </div>
@@ -368,7 +439,9 @@
 
             <div class="product-card">
                 <div class="product-info">
-                    <h3>1. v0 for iOS</h3>
+                    <img src="https://ph-files.imgix.net/1cff965e-4355-4dcc-9da1-126e34310d38.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> v0 for iOS</h3>
                     <p>Build anything with AI</p>
                     <span class="tags">iOS • Developer Tools • Vibe coding</span>
                 </div>
@@ -380,7 +453,9 @@
 
             <div class="product-card highlight">
                 <div class="product-info">
-                    <h3>2. AI CMO by Lindy</h3>
+                    <img src="https://ph-files.imgix.net/625c25fa-134c-4098-ac85-c32439c36eef.x-icon?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> AI CMO by Lindy</h3>
                     <p>Launch 1000s of marketing experiments in minutes</p>
                     <span class="tags">Productivity • Marketing • Artificial Intelligence</span>
                 </div>
@@ -392,7 +467,9 @@
 
             <div class="product-card">
                 <div class="product-info">
-                    <h3>3. Alai</h3>
+                    <img src="https://ph-files.imgix.net/bf6cc80e-25a3-42b3-a78c-fe877e694cbf.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> Alai</h3>
                     <p>Create high quality presentations using AI</p>
                     <span class="tags">Design Tools • Productivity • Artificial Intelligence</span>
                 </div>
@@ -404,7 +481,9 @@
 
             <div class="product-card">
                 <div class="product-info">
-                    <h3>4. Starbase</h3>
+                    <img src="https://ph-files.imgix.net/3fa979f8-029b-4c4c-a529-1b7dd257e924.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> Starbase</h3>
                     <p>Browser-based MCP server testing with AI chat integration</p>
                     <span class="tags">Developer Tools • Artificial Intelligence • GitHub</span>
                 </div>
@@ -416,7 +495,9 @@
 
             <div class="product-card">
                 <div class="product-info">
-                    <h3>5. ChatFlow</h3>
+                    <img src="https://ph-files.imgix.net/771aa41f-2535-462c-a10c-8910afbc6606.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> ChatFlow</h3>
                     <p>Automate customer support with AI chatbots</p>
                     <span class="tags">Customer Support • AI • Automation</span>
                 </div>
@@ -427,12 +508,14 @@
             </div>
             <div class="image">
                 <img loading="eager" fetchpriority="high"
-                    srcset="https://ph-files.imgix.net/c7656d0d-c5a7-42dd-a70d-05050d73f65d.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1&amp;dpr=1 1x, https://ph-files.imgix.net/c7656d0d-c5a7-42dd-a70d-05050d73f65d.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1&amp;dpr=2 2x, https://ph-files.imgix.net/c7656d0d-c5a7-42dd-a70d-05050d73f65d.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1&amp;dpr=3 3x"
-                    src="https://ph-files.imgix.net/c7656d0d-c5a7-42dd-a70d-05050d73f65d.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1"
-                    style="aspect-ratio:5 / 1;width:100%;height:auto" alt="Rippling" class="size-full object-contain">
+                    srcset="https://ph-files.imgix.net/fd025b96-99b0-46a7-9878-2fc66904cbd0.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1&amp;dpr=1 1x, https://ph-files.imgix.net/fd025b96-99b0-46a7-9878-2fc66904cbd0.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1&amp;dpr=2 2x, https://ph-files.imgix.net/fd025b96-99b0-46a7-9878-2fc66904cbd0.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1&amp;dpr=3 3x"
+                    src="https://ph-files.imgix.net/fd025b96-99b0-46a7-9878-2fc66904cbd0.jpeg?auto=compress&amp;codec=mozjpeg&amp;cs=strip&amp;auto=format&amp;w=888&amp;h=178&amp;fit=max&amp;frame=1"
+                    style="aspect-ratio:5 / 1;width:100%;height:auto" alt="AWS" class="size-full object-contain">
             </div>
             <div class="product-card highlight">
                 <div class="product-info">
+                    <img src="https://ph-files.imgix.net/58c095ce-fbd3-44f1-aa83-f0d7d5e21a8d.jpeg?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
                     <h3>6. TrendAnalyzer</h3>
                     <p>Spot trends before they go viral</p>
                     <span class="tags">Marketing • Analytics • AI</span>
@@ -445,7 +528,9 @@
 
             <div class="product-card">
                 <div class="product-info">
-                    <h3>7. DesignBot</h3>
+                    <img src="https://ph-files.imgix.net/ff3ba4af-52e1-41a3-9893-5f68be95f072.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> DesignBot</h3>
                     <p>Create stunning visuals in seconds</p>
                     <span class="tags">Design • Creativity • AI Tools</span>
                 </div>
@@ -457,7 +542,9 @@
 
             <div class="product-card highlight">
                 <div class="product-info">
-                    <h3>8. CodeWhiz</h3>
+                    <img src="https://ph-files.imgix.net/bfdd1205-3850-483d-9404-ad17cd585a9a.jpeg?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> CodeWhiz</h3>
                     <p>Auto-generate clean code for your projects</p>
                     <span class="tags">Development • Productivity • AI</span>
                 </div>
@@ -467,9 +554,12 @@
                 </div>
             </div>
 
+
             <div class="product-card">
                 <div class="product-info">
-                    <h3>9. NoteMate</h3>
+                    <img src="https://ph-files.imgix.net/725434cc-e1c9-4f8c-8ef5-6afb035a5ec3.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=64&h=64&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> NoteMate</h3>
                     <p>Smart AI notetaker for students and professionals</p>
                     <span class="tags">Productivity • AI • Notes</span>
                 </div>
@@ -481,7 +571,9 @@
 
             <div class="product-card highlight">
                 <div class="product-info">
-                    <h3>10. MarketGenie</h3>
+                    <img src="https://ph-files.imgix.net/902caf0c-7aac-404c-8d08-398452ac5b41.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&w=32&h=32&fit=crop&frame=1&dpr=2"
+                        alt="" width="19px">
+                    <h3> MarketGenie</h3>
                     <p>Generate marketing content in seconds using AI</p>
                     <span class="tags">Marketing • AI • Content Creation</span>
                 </div>
@@ -508,6 +600,60 @@
 
 
     <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>Engineering & Development</h4>
+                <p>Vibe Tools</p>
+                <p>AI Agents</p>
+                <p>Code Editors</p>
+                <p>Community</p>
+                <p>Open Source</p>
+                <p>Projects</p>
+                <p>Support</p>
+                <p>API</p>
+                <p>Documentation</p>
+                <p>Updates</p>
+            </div>
+            <div>
+                <h4>Design & Creative</h4>
+                <p>Video Editing</p>
+                <p>Templates</p>
+                <p>Graphics</p>
+                <p>Tutorials</p>
+                <p>Showcase</p>
+                <p>Icons</p>
+                <p>Fonts</p>
+                <p>Mockups</p>
+                <p>Tools</p>
+                <p>Resources</p>
+            </div>
+            <div>
+                <h4>Productivity</h4>
+                <p>AI Notes</p>
+                <p>Team Tools</p>
+                <p>Search</p>
+                <p>Time Apps</p>
+                <p>Learning</p>
+                <p>Tasks</p>
+                <p>Calendar</p>
+                <p>Reminders</p>
+                <p>Reports</p>
+                <p>Insights</p>
+            </div>
+            <div>
+                <h4>Marketing & Sales</h4>
+                <p>Leads</p>
+                <p>Automation</p>
+                <p>Analytics</p>
+                <p>Content</p>
+                <p>Networking</p>
+                <p>SEO</p>
+                <p>Ads</p>
+                <p>Campaigns</p>
+                <p>Email</p>
+                <p>Strategy</p>
+            </div>
+        </div>
         <div class="footer-grid">
             <div>
                 <h4>Engineering & Development</h4>
