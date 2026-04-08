@@ -40,7 +40,7 @@ Each project is crafted to closely replicate the original website’s design, de
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/clone-websites.git
+   git clone https://github.com/Prathvikmehra/clone-websites.git
    ```
 
 2. Navigate into the project folder:
