@@ -1178,45 +1178,5 @@
     .product-summary img {
         width: 200px;
     }
-    
-    .items, .men_items, .row {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        width: 100% !important;
-        padding: 10px;
-    }
-    .baner3, .baner4 {
-        width: 100% !important;
-        margin: 0 !important;
-        height: 50vh !important;
-    }
-    .aboutme {
-        width: 90vw !important;
-        margin: 20px auto !important;
-    }
-    .baner7 {
-        width: 100vw !important;
-        height: 40vh !important;
-    }
-    .footer .content .main_con, .footer .content .side_con {
-        width: 100vw !important;
-        margin-left: 0 !important;
-        padding: 10px !important;
-    }
-    .main_footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-    .row {
-        flex-direction: column !important;
-    }
-    .row img {
-        width: 100% !important;
-        margin-left: 0 !important;
-    }
-    .detail {
-        width: 90vw !important;
-        margin-left: 10px !important;
-    }
 }
+
