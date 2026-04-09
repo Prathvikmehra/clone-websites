@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://res.cloudinary.com/dhbxrjpgc/image/upload/v1761558607/Screenshot_2025-10-27_151706-removebg-preview_qirwja.png" type="image/x-icon">
+    <title>WOMEN'S CLOTHING</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .main_nav {
+            justify-content: flex-start;
+            gap: 50px;
+        }
+        .main_nav>img#logo, #logo {
+            position: static !important;
+            transform: none !important;
+            margin-right: auto;
+            margin-left: 0 !important;
+        }
+        .r_nav { margin-left: auto; }
+        
+        .category-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 40px;
+            padding: 30px 4%;
+            border-bottom: 1px solid #f0f0f0;
+            scrollbar-width: none;
+            justify-content: center;
+        }
+        .category-scroll::-webkit-scrollbar { display: none; }
+        .cat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .cat-item:hover { transform: translateY(-5px); }
+        .cat-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            padding: 15px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        .cat-item span {
+            font-size: 13px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .women-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 4%;
+            font-family: sans-serif;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 30px;
+        }
+        .women-header-bar .product-count {
+            font-size: 14px;
+            color: #666;
+            flex: 1;
+        }
+        .women-header-bar h3 {
+            font-size: 22px;
+            font-weight: 500;
+            flex: 1;
+            text-align: center;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+        .women-header-bar .filter-sort {
+            flex: 1;
+            text-align: right;
+            font-size: 14px;
+            color: #333;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .women-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 0 4%;
+            margin-bottom: 50px;
+            font-family: sans-serif;
+        }
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .img-wrapper {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: #f5e8da;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .like-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .like-btn svg { width: 24px; height: 24px; color: #555; }
+        
+        .prod-title {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .prod-price {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        .prod-price del {
+            color: #888;
+            font-weight: 400;
+            font-size: 13px;
+            margin-left: 8px;
+            text-decoration: line-through;
+        }
+        .prod-price .discount {
+            color: #e53935;
+            font-size: 12px;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+        .prod-sizes {
+            font-size: 12px;
+            color: #333;
+            display: flex;
+            gap: 8px;
+        }
+        .prod-sizes .out {
+            text-decoration: line-through;
+            color: #999;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 0;
+            font-family: sans-serif;
+            align-items: center;
+        }
+        .pagination a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 5px;
+        }
+        .pagination .active {
+            border-bottom: 2px solid #000;
+        }
+
+        @media (max-width: 1024px) {
+            .women-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .women-header-bar { flex-direction: column; gap: 15px; }
+            .women-header-bar .product-count, .women-header-bar h3, .women-header-bar .filter-sort { text-align: center; }
+            .women-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 2%; }
+            .category-scroll { padding: 20px 2%; gap: 20px; justify-content: flex-start; }
+            .main_nav>img#logo, #logo { width: 130px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="nav">
+                <div class="main_nav">
+                    <a href="index.html">
+                        <img id="logo" src="https://res.cloudinary.com/dhbxrjpgc/image/upload/v1761217484/Cantabil-logo-1_jg57qn.avif" alt="">
+                    </a>
+                    <input type="text" name="search" id="search" placeholder="&nbsp&nbsp&nbsp&#128269; &nbsp&nbsp search">
+                    <div class="r_nav">
+                        <span class="mdi--shop-location-outline"></span>
+                        <span class="line-md--account-small"></span>
+                        <span class="line-md--heart"></span>
+                        <span class="ic--twotone-shopping-bag"></span>
+                    </div>
+                </div>
+                <div class="nav_option">
+                    <div class="option"><p><a href="index.html">HOME</a> <span class="formkit--down"></span></p></div>
+                    <div class="option"><p><a href="men.html">MEN'S</a> <span class="formkit--down"></span></p></div>
+                    <div class="option"><p><a class="women" href="women.html" style="text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px;">WOMEN'S</a> <span class="formkit--down"></span></p></div>
+                    <div class="option"><p><a href="#">GIRL'S</a> <span class="formkit--down"></span></p></div>
+                    <div class="option"><p><a href="#">BOY'S</a> <span class="formkit--down"></span></p></div>
+                    <div class="option"><p><a href="#">FOOTWEAR</a> <span class="formkit--down"></span></p></div>
+                    <div class="option"><p><a href="#">ACCESSORIES</a> <span class="formkit--down"></span></p></div>
+                    <div class="option"><p><a href="#">ACTIVE WEAR</a> <span class="formkit--down"></span></p></div>
+                    <div class="option"><p><a href="#">INNERWEAR</a> <span class="formkit--down"></span></p></div>
+                    <div class="option"><p><a href="#">BESTSELLER</a> <span class="formkit--down"></span></p></div>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <div class="category-scroll">
+                <div class="cat-item"><img src="https://img.icons8.com/ios/100/000000/suit.png" alt=""><span>Blazers</span></div>
+                <div class="cat-item"><img src="https://img.icons8.com/ios/100/000000/trousers.png" alt=""><span>Cargo Pant</span></div>
+                <div class="cat-item"><img src="https://img.icons8.com/ios/100/000000/womens-shirt.png" alt=""><span>Co-ord set</span></div>
+                <div class="cat-item"><img src="https://img.icons8.com/ios/100/000000/coat.png" alt=""><span>Coats</span></div>
+                <div class="cat-item"><img src="https://img.icons8.com/ios/100/000000/dress.png" alt=""><span>Dresses</span></div>
+                <div class="cat-item"><img src="https://img.icons8.com/ios/100/000000/polo-shirt.png" alt=""><span>Formal Shirt</span></div>
+                <div class="cat-item"><img src="https://img.icons8.com/ios/100/000000/trousers.png" alt=""><span>Formal trouser</span></div>
+                <div class="cat-item"><img src="https://img.icons8.com/ios/100/000000/jacket.png" alt=""><span>Jacket</span></div>
+                <div class="cat-item"><img src="https://img.icons8.com/ios/100/000000/jeans.png" alt=""><span>Jeans</span></div>
+            </div>
+
+            <div class="women-header-bar">
+                <div class="product-count">700 products</div>
+                <h3>WOMEN</h3>
+                <div class="filter-sort">
+                    <span style="font-size:18px;">&equiv;</span> <span style="font-weight:600; cursor:pointer;">SORT BY</span> &nbsp;|&nbsp; 
+                    <span style="font-size:16px;">⚲</span> <span style="font-weight:600; cursor:pointer;">Filter</span>
+                </div>
+            </div>
+
+            <div class="women-grid">
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Denim Jeans for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 1,599</span>
+                        <del>MRP: ₹ 2,999</del>
+                        <span class="discount">(20% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Jegging for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 1,699</span>
+                        <del>MRP: ₹ 3,099</del>
+                        <span class="discount">(25% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Women Regular Fit Shirt | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 1,799</span>
+                        <del>MRP: ₹ 3,199</del>
+                        <span class="discount">(30% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">T-Shirt for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 1,899</span>
+                        <del>MRP: ₹ 3,299</del>
+                        <span class="discount">(35% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Denim Jeans for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 1,999</span>
+                        <del>MRP: ₹ 3,399</del>
+                        <span class="discount">(40% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Jegging for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 2,099</span>
+                        <del>MRP: ₹ 3,499</del>
+                        <span class="discount">(20% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1550614000-4b95d466f288?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Women Regular Fit Shirt | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 2,199</span>
+                        <del>MRP: ₹ 3,599</del>
+                        <span class="discount">(25% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1485230833923-b184a51187d9?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">T-Shirt for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 2,299</span>
+                        <del>MRP: ₹ 3,699</del>
+                        <span class="discount">(30% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Denim Jeans for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 2,399</span>
+                        <del>MRP: ₹ 3,799</del>
+                        <span class="discount">(35% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Jegging for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 2,499</span>
+                        <del>MRP: ₹ 3,899</del>
+                        <span class="discount">(40% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Women Regular Fit Shirt | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 2,599</span>
+                        <del>MRP: ₹ 3,999</del>
+                        <span class="discount">(20% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1481824429379-07aa5e5b4626?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">T-Shirt for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 2,699</span>
+                        <del>MRP: ₹ 4,099</del>
+                        <span class="discount">(25% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Denim Jeans for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 2,799</span>
+                        <del>MRP: ₹ 4,199</del>
+                        <span class="discount">(30% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Jegging for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 2,899</span>
+                        <del>MRP: ₹ 4,299</del>
+                        <span class="discount">(35% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Women Regular Fit Shirt | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 2,999</span>
+                        <del>MRP: ₹ 4,399</del>
+                        <span class="discount">(40% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">T-Shirt for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 3,099</span>
+                        <del>MRP: ₹ 4,499</del>
+                        <span class="discount">(20% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Denim Jeans for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 3,199</span>
+                        <del>MRP: ₹ 4,599</del>
+                        <span class="discount">(25% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Jegging for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 3,299</span>
+                        <del>MRP: ₹ 4,699</del>
+                        <span class="discount">(30% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1550614000-4b95d466f288?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Women Regular Fit Shirt | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 3,399</span>
+                        <del>MRP: ₹ 4,799</del>
+                        <span class="discount">(35% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1485230833923-b184a51187d9?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">T-Shirt for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 3,499</span>
+                        <del>MRP: ₹ 4,899</del>
+                        <span class="discount">(40% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Denim Jeans for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 3,599</span>
+                        <del>MRP: ₹ 4,999</del>
+                        <span class="discount">(20% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Jegging for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 3,699</span>
+                        <del>MRP: ₹ 5,099</del>
+                        <span class="discount">(25% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">Women Regular Fit Shirt | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 3,799</span>
+                        <del>MRP: ₹ 5,199</del>
+                        <span class="discount">(30% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1481824429379-07aa5e5b4626?auto=format&fit=crop&q=80&w=400" alt="Women Fashion">
+                        <button class="like-btn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="prod-title">T-Shirt for Women | Breathable & Soft...</div>
+                    <div class="prod-price">
+                        <span>₹ 3,899</span>
+                        <del>MRP: ₹ 5,299</del>
+                        <span class="discount">(35% OFF)</span>
+                    </div>
+                    <div class="prod-sizes">
+                        <span class="out">26</span>
+                        <span>28</span>
+                        <span>30</span>
+                        <span>32</span>
+                        <span>34</span>
+                        <span>36</span>
+                        <span class="out">38</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">...</a>
+                <a href="#">30</a>
+                <a href="#">&gt;</a>
+            </div>
+
+        </main>
+        <div style="background-color: #222222; margin-top: 50px;">
+        <footer>
+            <div class="footer" style="background-image: none; background-color: #222222;">
+                <div class="content" style="border-top: none; padding-top: 5vh; border-bottom: 2px solid #333; padding-bottom: 5vh;">
+                    <div class="main_con">
+                        <div class="main_con_01">
+                            <h3 style="color: #fff; font-size: 15px; margin-bottom: 20px;">SHOP</h3>
+                            <UL style="list-style-type: none; line-height: 2.5; font-size: 14px;">
+                                <li>Men</li>
+                                <li>Women</li>
+                                <li>Girls</li>
+                                <li>Boys</li>
+                                <li>Footwear</li>
+                                <li>Accessories</li>
+                                <li>Active Wear</li>
+                                <li>Innerwear</li>
+                            </UL>
+                        </div>
+                        <div class="main_con_01">
+                            <h3 style="color: #fff; font-size: 15px; margin-bottom: 20px;">USEFUL LINKS</h3>
+                            <ul style="list-style-type: none; line-height: 2.5; font-size: 14px;">
+                                <li>About Us</li>
+                                <li>FAQs</li>
+                                <li>Contact Us</li>
+                                <li>Store Locator</li>
+                                <li>Blogs</li>
+                                <li>Return & Exchange</li>
+                            </ul>
+                        </div>
+                        <div class="main_con_01">
+                            <h3 style="color: #fff; font-size: 15px; margin-bottom: 20px;">CUSTOMER POLICIES</h3>
+                            <ul style="list-style-type: none; line-height: 2.5; font-size: 14px;">
+                                <li>Privacy Policy</li>
+                                <li>Cookies and Pixel Tags</li>
+                                <li>Security Policy</li>
+                                <li>Return & Exchange Policy</li>
+                                <li>Shipping Policy</li>
+                                <li>Terms & Conditions</li>
+                                <li>Disclaimer</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="side_con">
+                        <h3 style="color: #fff; font-size: 15px; margin-bottom: 20px;">JOIN US</h3>
+                        <P class="p1" style="font-size: 14px; margin-top:0;">Sign up for the newsletter to know about latest offers</P>
+                        <form>
+                            <input type="text" name="" id="email" placeholder="YOUR EMAIL" style="width: 100%; height: 45px; padding-left: 15px; margin-bottom: 10px; margin-top:20px; border:none;">
+                            <button style="width: 100%; height: 45px; background: white; color: black; border: none; font-weight: bold; cursor:pointer;">SIGN UP</button>
+                        </form>
+                        <div class="main" style="margin-top: 30px; gap:10px;">
+                            <div class="social" style="border:none;"><img src="https://img.icons8.com/ios-glyphs/30/000000/facebook-new.png" width="20px"></div>
+                            <div class="social" style="border:none;"><img src="https://img.icons8.com/ios-glyphs/30/000000/instagram-new.png" width="20px"></div>
+                            <div class="social" style="border:none;"><img src="https://img.icons8.com/ios-glyphs/30/000000/youtube-play.png" width="20px"></div>
+                            <div class="social" style="border:none;"><img src="https://img.icons8.com/ios-glyphs/30/000000/twitter.png" width="20px"></div>
+                            <div class="social" style="border:none;"><img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" width="20px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main_footer" style="padding: 20px 5vw; margin:0;">
+                    <p style="font-size: 13px;">© 2025 Cantabil Online Shopping Store. All Rights Reserved. Cantabil Retail India Ltd.</p>
+                    <div class="payment">
+                        <p style="font-size: 13px;">100% Secure Payment By &nbsp</p>
+                        <img src="https://res.cloudinary.com/dhbxrjpgc/image/upload/v1761298158/payment-icon_rletg3.avif" alt="" height="25px">
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </div>
+    </div>
+</body>
+</html>
