@@ -1178,5 +1178,73 @@
     .product-summary img {
         width: 200px;
     }
+
+    /* Minimal Responsiveness Fixes */
+    body, html {
+        overflow-x: hidden;
+    }
+    
+    .items {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    
+    .men_items {
+        width: 100%;
+        padding: 5px;
+    }
+    
+    .baner3_4 {
+        flex-direction: column;
+    }
+    
+    .baner3, .baner4 {
+        width: 100%;
+        height: 50vh;
+        margin: 5px 0 !important;
+    }
+    
+    .about {
+        flex-direction: column;
+    }
+    
+    .baner7 {
+        width: 100%;
+        height: 40vh;
+    }
+    
+    .aboutme {
+        width: 90%;
+        margin: 20px auto;
+    }
+    
+    .footer .content .main_con {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 20px;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .footer .content .side_con {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 20px;
+    }
+    
+    .row {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .row img {
+        width: 90%;
+        margin: 10px auto;
+    }
+    
+    .detail {
+        width: 90%;
+        margin: 20px auto;
+    }
 }
 
